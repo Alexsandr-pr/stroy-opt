@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+	@font-face {
+		font-family: 'HelveticaNeueCyr';
+		src: local('HelveticaNeueCyr-Bold'), url('./fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
+		font-weight: 700;
+		font-style: normal;
+	}
+	
+	@font-face {
+		font-family: 'HelveticaNeueCyr';
+		src: local('HelveticaNeueCyr-Medium'), url('./fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
+		font-weight: 500;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'HelveticaNeueCyr';
+		src: local('HelveticaNeueCyr-Roman'),url('./fonts/HelveticaNeueCyr-Roman.ttf') format('truetype');
+		font-weight: 400;
+		font-style: normal;
+		
+	}
+	body {
+		font-family:'HelveticaNeueCyr' ;
+	}
+
+
+.swiper-pagination-bullet {
+	border:3px solid rgba(255, 255, 255, 1); /* измените на желаемый цвет */
+	width: 17px; /* измените на желаемый размер */
+	height: 17px; /* измените на желаемый размер */
+	border-radius: 50%; /* чтобы сделать их круглыми */
+}
+.swiper-pagination-bullet-active {
+	background-color: transparent;
+	border:3px solid #117FE3;
+}
+.swiper-wrapper {
+	align-items:stretch;
+}
