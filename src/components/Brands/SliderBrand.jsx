@@ -41,10 +41,8 @@ const data = [
 const SliderBrand = () => {
     return (
         <Swiper
-
             spaceBetween={20}
             slidesPerView="auto"
-            
         >
             {
                 data.map((item, i) => {

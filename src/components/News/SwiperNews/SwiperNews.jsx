@@ -10,6 +10,7 @@ import image from "../NewsCard/img/1.webp";
 import image2 from "../NewsCard/img/2.webp";
 import image3 from "../NewsCard/img/3.webp";
 import image4 from "../NewsCard/img/4.webp";
+
 const data  = [
     {
         "title":"Масштабное обновление каталога инструментов",
@@ -47,8 +48,6 @@ const data  = [
         "id": uuidv4(),
     }
 ]
-
-
 
 
 const SwiperNews = () => {
