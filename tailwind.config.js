@@ -54,8 +54,13 @@ export default {
       "time":"#4E5760",
       "button-popup":"#2A5E8D",
       "navlink-mobile":"#2E3032",
-      "fon": "rgba(1, 17, 32, 0.50)"
-
+      "fon": "rgba(1, 17, 32, 0.50)",
+      "border-history":"#E6EEF6",
+      "title-news": "#1D1D27",
+      "input-text":"##ADB1B7",
+      "input-border": "rgba(173, 177, 183, 1)",
+      "checkbox":"#696D70",
+      "pagination-border":"#DFDFDF"
     },
   },
   plugins: [],

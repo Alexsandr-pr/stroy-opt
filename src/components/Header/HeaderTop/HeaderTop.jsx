@@ -15,7 +15,7 @@ const HeaderTop = () => {
             <nav className={`fixed w-full h-full   top-0  bg-fon z-30 lg:relative transition-all duration-500  lg:left-0 ${active ? "left-0" : "left-[-120%]"}`}>
                 <ul className="flex w-2/3 md:w-1/2 lg:w-auto lg:h-auto h-full p-6 lg:p-0  flex-col bg-white2 lg:bg-white items-end lg:flex-row z-40 gap-x-8 lg:flex-wrap gap-y-2">
                     <li className="">
-                        <NavLink to="home" className={`lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap `}>
+                        <NavLink to="company" className={`lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap `}>
                             О компании
                         </NavLink>
                     </li>
@@ -30,7 +30,7 @@ const HeaderTop = () => {
                         </NavLink>
                     </li>
                     <li className="">
-                        <NavLink to="return" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
+                        <NavLink to="" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
                             Возврат
                         </NavLink>
                     </li>

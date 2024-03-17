@@ -46,35 +46,75 @@
 	align-items:stretch;
 }
 
-.ham {
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    transition: transform 400ms;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  .hamRotate.active {
-    transform: rotate(45deg);
-  }
-  .line {
-    fill:none;
-    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-    stroke:#000;
-    stroke-width:5.5;
-    stroke-linecap:round;
-  }
-  .ham1 .top {
-    stroke-dasharray: 40 139;
-  }
-  .ham1 .bottom {
-    stroke-dasharray: 40 180;
-  }
-  .ham1.active .top {
-    stroke-dashoffset: -98px;
-  }
-  .ham1.active .bottom {
-    stroke-dashoffset: -138px;
-  }
+    .ham {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        transition: transform 400ms;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .hamRotate.active {
+        transform: rotate(45deg);
+    }
+    .line {
+        fill:none;
+        transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+        stroke:#000;
+        stroke-width:5.5;
+        stroke-linecap:round;
+    }
+    .ham1 .top {
+        stroke-dasharray: 40 139;
+    }
+    .ham1 .bottom {
+        stroke-dasharray: 40 180;
+    }
+    .ham1.active .top {
+        stroke-dashoffset: -98px;
+    }
+    .ham1.active .bottom {
+        stroke-dashoffset: -138px;
+    }
 
+
+
+    .button-rybric:not(:last-child) {
+        border-bottom: 1px solid #F4F4F4;
+    }
+
+
+
+    .checked {
+        position: relative;
+        display: flex;
+        gap: 10px;
+    }
+
+    .checked input[type="checkbox"]:checked ~ .checked__span {
+        background: #186FD4;
+    }
+    .checked input[type="checkbox"]:checked ~ .checked__span::after {
+        opacity: 1;
+    }
+    .checked input[type="checkbox"] {
+        display: none;
+    }
+.checked__span {
+    min-width: 26px;
+    position: relative;
+    height: 26px;
+    border-radius: 4px;
+    display: flex;
+    border:1px solid #DFE0E2;
+}
+.checked__span::after {
+    content: "✓";
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    color: #FFF;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}

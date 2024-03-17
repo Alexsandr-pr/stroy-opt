@@ -1,0 +1,176 @@
+{
+    "data": [
+        {
+            "img":"1",
+            "type": {
+                "parentCategory":"tool",
+                "typeOf": "powerTool",
+                "thisType": "drill"
+            },
+            "brand":"MAKITA",
+            "name": "Дрель ударная Makita HP1640",
+            "sale": "10%",
+            "price": "3 199",
+            "characteristics": [
+                {
+                    "params": "Тип",
+                    "indicators":"дрель ударная"
+                },
+                {
+                    "params": "Номинальная мощность",
+                    "indicators":"680 Вт"
+                },
+                {
+                    "params": "Тип питания",
+                    "indicators":"2800 об/мин"
+                },
+                {
+                    "params": "Скорость вращения",
+                    "indicators":"2800 об/мин"
+                },
+                {
+                    "params": "Частота ударов",
+                    "indicators":"44800 уд / мин"
+                },
+                {
+                    "params": "Вес",
+                    "indicators":"2 кг"
+                },
+                {
+                    "params": "Диаметр патрона",
+                    "indicators":"1.5 - 13 мм"
+                }
+            ]
+        },
+        {
+            "img":"2",
+            "type": {
+                "parentCategory":"tool",
+                "typeOf": "powerTool",
+                "thisType": "drill"
+            },
+            "brand":"Makita",
+            "name": "Дрель безударная Makita MT M6501",
+            "sale": "0",
+            "price": "2 348",
+            "characteristics": [
+                {
+                    "params": "Тип",
+                    "indicators":"дрель безударная"
+                },
+                {
+                    "params": "Номинальная мощность",
+                    "indicators":"230 Вт"
+                },
+                {
+                    "params": "Тип питания",
+                    "indicators":"от сети"
+                },
+                {
+                    "params": "Частота ударов",
+                    "indicators":"безударный"
+                },
+                {
+                    "params": "Вес",
+                    "indicators":"0.95 кг"
+                },
+                {
+                    "params": "Диаметр патрона",
+                    "indicators":"6.5 мм"
+                },
+                {
+                    "params": "Диаметр сверления",
+                    "indicators":"сталь / дерево - 6.5 / 9 мм"
+                },
+                {
+                    "params": "Размер изделия",
+                    "indicators":"203 x 63 x 171 мм"
+                }
+            ]
+        },
+        {
+            "img":"",
+            "type": {
+                "parentCategory":"",
+                "typeOf": "",
+                "thisType": ""
+            },
+            "brand":"",
+            "name": "",
+            "sale": "0",
+            "price": "",
+            "characteristics": [
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                }
+            ]
+        },
+        {
+            "img":"",
+            "type": {
+                "parentCategory":"",
+                "typeOf": "",
+                "thisType": ""
+            },
+            "brand":"",
+            "name": "",
+            "sale": "0",
+            "price": "",
+            "characteristics": [
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                },
+                {
+                    "params": "",
+                    "indicators":""
+                }
+            ]
+        }
+    ]
+}

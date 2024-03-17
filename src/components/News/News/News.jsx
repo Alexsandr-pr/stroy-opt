@@ -10,13 +10,13 @@ const News = () => {
                 <div className="mb-6 sm:mb-8">
                     <HeaderBlock title={"Последние новости"} >
                         <div className="hidden sm:block">
-                            <ButtonCategory text={"Больше новостей"} active={true}/>
+                            <ButtonCategory title={"Больше новостей"} active={true}/>
                         </div>
                     </HeaderBlock>
                 </div>
                 <SwiperNews/>
                 <div className="flex justify-center sm:hidden">
-                    <ButtonCategory text={"Больше новостей"} active={true}/>
+                    <ButtonCategory title={"Больше новостей"} active={true}/>
                 </div>
             </div>
         </div>

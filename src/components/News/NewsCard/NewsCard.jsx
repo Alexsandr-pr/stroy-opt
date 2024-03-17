@@ -6,7 +6,7 @@ const NewsCard = ({imgLink, title, text,data, id}) => {
     return (
         <article className="flex flex-col">
             <a href='#' id={id} className='relative mb-3 sm:mb-5 flex' >
-                <img className='max-w-full' src={imgLink} alt="image" />
+                <img className=' object-cover w-full h-full' src={imgLink} alt="image" />
             </a>
             <div className="flex flex-col gap-3">
                 <h3 className='font-medium text-main-title text-base text-left sm:text-sm'>{title}</h3>

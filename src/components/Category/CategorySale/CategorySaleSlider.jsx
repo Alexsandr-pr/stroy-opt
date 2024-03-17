@@ -58,7 +58,6 @@ const CategorySaleSlider = () => {
                             )
                         })
                     }
-            
             </Swiper>
         </div>
         
