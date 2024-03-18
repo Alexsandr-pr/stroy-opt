@@ -2,7 +2,6 @@ import BigBluebutton from 'components/Buttons/BigBlueButton/BigBluebutton'
 import InputBlock from 'components/Forms/Input'
 import LabelCheckbox from 'components/Forms/LabelCheckbox'
 
-import React from 'react'
 
 const Spam = () => {        
     return (
@@ -18,7 +17,7 @@ const Spam = () => {
                         <BigBluebutton text={"Подписаться"}/>
                     </div>
                 </div>
-                <LabelCheckbox/>
+                <LabelCheckbox text={"Согласен с обработкой персональных данных в соответствии с политикой конфиденциальности"}/>
             </form>
         </div>
     )

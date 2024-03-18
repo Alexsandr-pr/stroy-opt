@@ -1,36 +1,25 @@
 import AsideParentPage from 'components/AsideParentPage/AsideParentPage'
+import HeaderBlock from 'components/HeaderBlock/HeaderBlock'
 import React from 'react'
 import SaleBlock from '../SaleBlock'
-import OrderLeft from './OrderLeft'
-import HeaderBlock from 'components/HeaderBlock/HeaderBlock'
-import Slider from './Slider/Slider'
+import RefundLeft from './RefundLeft'
 
-
-
-
-
-
-
-
-const Order = () => {
+const Refund = () => {
     return (
         <div className='max-w-[1654px] mx-auto px-4'>  
             <div className="mb-5">
-            <HeaderBlock title={"Доставка"}/>
+                <HeaderBlock title={"Возврат"}/>
             </div>
             <AsideParentPage
                 left={
-                    <OrderLeft/>
+                    <RefundLeft/>
                 }
                 right={
                     <SaleBlock/>
                 }
             />
-            <div className="mt-14 mb-28">
-                <Slider/>
-            </div>
         </div>
     )
 }
 
-export default Order
+export default Refund

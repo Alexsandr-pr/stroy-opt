@@ -20,7 +20,7 @@ const HeaderTop = () => {
                         </NavLink>
                     </li>
                     <li className="">
-                        <NavLink to="pay" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
+                        <NavLink to="payment" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
                             Оплата
                         </NavLink>
                     </li>
@@ -30,7 +30,7 @@ const HeaderTop = () => {
                         </NavLink>
                     </li>
                     <li className="">
-                        <NavLink to="" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
+                        <NavLink to="refund" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
                             Возврат
                         </NavLink>
                     </li>

@@ -1,6 +1,6 @@
 import TitleMain from 'components/BlockText/TitleMain/TitleMain'
 import BlackButton from 'components/Buttons/BlackButton/BlackButton'
-import React from 'react'
+
 
 
 

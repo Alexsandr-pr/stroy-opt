@@ -57,10 +57,12 @@ export default {
       "fon": "rgba(1, 17, 32, 0.50)",
       "border-history":"#E6EEF6",
       "title-news": "#1D1D27",
-      "input-text":"##ADB1B7",
+      "input-text":"#ADB1B7",
       "input-border": "rgba(173, 177, 183, 1)",
       "checkbox":"#696D70",
-      "pagination-border":"#DFDFDF"
+      "pagination-border":"#DFDFDF",
+      "spoller-border":"#EDF0F2",
+      "date":"#60656C"
     },
   },
   plugins: [],

@@ -1,6 +1,6 @@
 import React from 'react'
 import HeaderBlockTitle from '../../BlockText/HeaderBlockTitle/HeaderBlockTitle'
-import BlockInfoNumber from "../../BlockInfoNumber/BlockInfoNumber"
+
 import BlackButton from '../../Buttons/BlackButton/BlackButton'
 import BlockInfoItems from 'components/BlockInfoNumber/BlockInfoItems'
 
