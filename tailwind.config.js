@@ -7,6 +7,7 @@ export default {
     extend: {
       boxShadow: {
         '3sl': '2px 2px 4px #898D8F, -2px -2px 4px #898D8F',
+        "4sl": "0px 4px 19px 0px rgba(23, 27, 32, 0.07)"
       }
     },
     screens: {
@@ -62,7 +63,8 @@ export default {
       "checkbox":"#696D70",
       "pagination-border":"#DFDFDF",
       "spoller-border":"#EDF0F2",
-      "date":"#60656C"
+      "date":"#60656C",
+      "map-border":"#E9ECEF"
     },
   },
   plugins: [],

@@ -7,6 +7,7 @@ import image from "./img/1.webp";
 import image2 from "./img/2.webp";
 import image3 from "./img/3.webp";
 import image4 from "./img/4.webp";
+import { Link } from 'react-router-dom';
 
 
 const data  = [
@@ -50,14 +51,14 @@ const data  = [
 
 const NewsPageContentLeft = () => {
     return (
-        <div>
+        <Link to="newsitem">
             <div className="mb-16">
                 <NewsItems data={data}/>
             </div>
             <div className="flex justify-center">
             <Pagination/>
             </div>
-        </div>
+        </Link>
     )
 }
 
