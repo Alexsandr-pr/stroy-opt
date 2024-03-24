@@ -46,8 +46,8 @@ const FooterBodyCatalog = () => {
                 {
                     data.map(({ title}) => {
                         return (
-                            <li className="mb-4 xl:mb-7">
-                                <Link key={title} className='text-base text-[#404244] hover:text-blue transition-all duration-300'>
+                            <li key={title} className="mb-4 xl:mb-7">
+                                <Link  className='text-base text-[#404244] hover:text-blue transition-all duration-300'>
                                 {title}
                                 </Link>
                             </li>

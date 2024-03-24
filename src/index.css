@@ -118,3 +118,7 @@
     position: absolute;
     transform: translate(-50%, -50%);
 }
+
+input[type = 'search']::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}

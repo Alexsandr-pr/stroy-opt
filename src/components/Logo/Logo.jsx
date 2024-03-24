@@ -1,15 +1,15 @@
 
 
-import logoMobile from "./img/logo-mobile.svg";
-import logoDesktop from "./img/logo-desktop.svg";
+import logoMobile from "./img/logo-mb.webp";
+import logoDesktop from "./img/logo-ds.webp";
 import { Link } from "react-router-dom";
 
 const Logo = () => {
     return (
-        <Link to="/">
+        <Link to="/" className="flex w-[159px] lg:w-[216px]">
             <picture>
-                <source media="(min-width: 1024px )" srcset={logoDesktop} type="image/svg+xml" />
-                <img src={logoMobile} alt="logo" />
+                <source media="(min-width:1024px)" srcSet={logoDesktop} type="image/webp" />
+                <img width={159} className="w-full " height={45} src={logoMobile} alt="logo" />
             </picture>
         </Link>
     )

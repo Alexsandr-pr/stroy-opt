@@ -22,7 +22,7 @@ const FooterSocial = () => {
             {
                 data.map(({image, imageAlt}) => {
                     return (
-                        <li >
+                        <li  key={imageAlt}>
                             <a href="#">
                                 <img src={image} alt={imageAlt} />
                             </a>

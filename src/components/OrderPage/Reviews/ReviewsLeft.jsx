@@ -101,7 +101,7 @@ const ReviewsLeft = () => {
                 <ButtonItems data={dataButtons}/>
             </div>
             <div className="mb-12 md:mb-16">
-            <ReviewsItems data={data}/>
+                <ReviewsItems data={data}/>
             </div>
             <div className="flex justify-center mb-12"><Pagination/></div>
             <div className="my-16">

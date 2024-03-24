@@ -4,6 +4,7 @@ import SaleBlock from '../SaleBlock'
 import OrderLeft from './OrderLeft'
 import HeaderBlock from 'components/HeaderBlock/HeaderBlock'
 import Slider from './Slider/Slider'
+import Breadcrumbs from 'components/Breadcrumbs/Breadcrumbs'
 
 
 
@@ -15,8 +16,9 @@ import Slider from './Slider/Slider'
 const Order = () => {
     return (
         <div className='max-w-[1654px] mx-auto px-4'>  
+            <Breadcrumbs page={"Доставка"}/>
             <div className="mb-5">
-            <HeaderBlock title={"Доставка"}/>
+                <HeaderBlock title={"Доставка"}/>
             </div>
             <AsideParentPage
                 left={

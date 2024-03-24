@@ -2,7 +2,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from 'pages/Layout/Layout';
 
-import './App.css';
+
 
 import Home from 'pages/Home/Home';
 import Company from 'pages/Company/Company';
@@ -14,6 +14,7 @@ import Question from 'components/OrderPage/Question/Question';
 import Reviews from 'components/OrderPage/Reviews/Reviews';
 import ContactsPage from 'components/OrderPage/ContactsPage/ContactsPage';
 import NewsCardPage from 'components/NewsPage/NewsCardPage/NewsCardPage';
+import PageNotFound from 'pages/PageNotFound/PageNotFound';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                     <Route path="/question" element={<Question/>}/>
                     <Route path="/reviews" element={<Reviews/>}/>
                     <Route path="/contact" element={<ContactsPage/>}/>
+                    <Route path="*" element={<PageNotFound/>}/>
                 </Route>
             </Routes>
         </>

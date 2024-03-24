@@ -9,11 +9,13 @@ import tel from "../../../../src/assets/icon-contacts/tel.svg"
 import NumberItems from './Numbers/NumberItems'
 import FormQuestion from 'components/Forms/FormQuestion/FormQuestion'
 import RegionsItems from './Regions/RegionsItems'
+import Breadcrumbs from 'components/Breadcrumbs/Breadcrumbs'
 
 const ContactsPage = () => {
     return (
-        <div className="">
+        <>
             <div className='max-w-[1654px]  mx-auto px-4'>
+                <Breadcrumbs page={"Контакты"}/>
                 <div className="mb-8">
                     <HeaderBlock title={"Контакты"}/>
                 </div>
@@ -80,7 +82,7 @@ const ContactsPage = () => {
             <div className="">
                 <FormQuestion/>
             </div>
-        </div>
+        </>
     )
 }
 

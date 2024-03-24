@@ -55,9 +55,9 @@ const FooterBodyNav = () => {
                 {
                     data.map(({to, title}) => {
                         return (
-                            <li className='mb-4 xl:mb-7'>
-                                <Link key={to} className='text-base text-[#404244]  hover:text-blue transition-all duration-300'>
-                                {title}
+                            <li key={title} className='mb-4 xl:mb-7 '>
+                                <Link to={to} className='text-base text-[#404244]  hover:text-blue transition-all duration-300'>
+                                    {title}
                                 </Link>
                             </li>
                         )

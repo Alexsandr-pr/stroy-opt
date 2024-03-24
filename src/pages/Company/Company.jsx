@@ -12,7 +12,6 @@ const Company = () => {
             <InfoBlockParent>
                 <InfoBlockContentCompany/>
             </InfoBlockParent>
-
             <WhyMeItems/>
             <HistoryBlock/>
             <News/> 
