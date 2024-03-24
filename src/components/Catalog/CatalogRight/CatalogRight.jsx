@@ -21,6 +21,7 @@ import SpollerSortFixed from "components/Spollers/SpollersSort/SpollerSortFixed"
 import BurgerIcon from "components/Icon/BurgerIcon";
 import { useDispatch } from "react-redux";
 import { addActiveFilter } from "../../../store/CatalogReducer";
+import CatalogInfoText from "./CatalogInfoText/CatalogInfoText";
 
 const categoryFilter = [
     {
@@ -214,7 +215,7 @@ const CatalogRight = () => {
 
 
     return (
-        <>
+        <div className="mb-20 lg:mb-28">
             <button onClick={() => addActiveFilters()} className="text-base mb-4 flex lg:hidden items-center gap-2.5 py-5  border-y w-full justify-center border-y-[#DFDFDF] text-main-title font-normal">
                 <BurgerIcon/>
                 <span>Показать фильтры</span>
@@ -263,7 +264,8 @@ const CatalogRight = () => {
             <div className="flex justify-center mb-12 lg:mb-20">
                 <Pagination/>
             </div>
-        </>
+            <CatalogInfoText/>
+        </div>
     )
 }
 

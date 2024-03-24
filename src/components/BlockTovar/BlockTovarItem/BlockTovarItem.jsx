@@ -41,7 +41,7 @@ const BlockTovarItem = memo(function(props) {
             <p className='text-[13px] text-article font-normal '>Артикул: {article}</p>
             <h3 className='text-black  text-ellipsis text-sm sm:text-lg h-20  font-medium leading-normal'>{title}</h3>
             <div className='text-price font-medium text-lg sm:text-xl leading-none flex gap-2 items-center'>
-                <div className="flex flex-col m46:flex-row">
+                <div className="flex flex-col items-center gap-1 sm:gap-2 flex-wrap  m46:flex-row">
                     <p className='text-grey-sale font-normal text-sm sm:text-[15px] leading-6 line-through'>15999</p> 
                     <p>{price}</p>
                 </div>

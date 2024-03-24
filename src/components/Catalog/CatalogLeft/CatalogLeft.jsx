@@ -179,11 +179,14 @@ const CatalogLeft = () => {
                     )
                 })
             }
+            <div className="hidden lg:block">
+                <CategorySaleBlock/>
+            </div>
             <div className="block lg:hidden mt-8">
                 <BigBluebutton text={"Применить фильтры"}/>
             </div>
         </div>
     )
 }
-// <CategorySaleBlock/>
+
 export default CatalogLeft
