@@ -64,7 +64,8 @@ export default {
       "pagination-border":"#DFDFDF",
       "spoller-border":"#EDF0F2",
       "date":"#60656C",
-      "map-border":"#E9ECEF"
+      "map-border":"#E9ECEF",
+      "modals": "rgba(1, 17, 32, 0.9)"
     },
   },
   plugins: [],

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 
 
@@ -7,14 +8,14 @@ const ButtonHeader = () => {
     const [active, setActive] = useState(false)
 
     return (
-        <button
+        <Link to="catalog"
             onClick={() => setActive(prev => !prev)}
             className={` text-white flex items-center text-sm uppercase font-bold gap-2 sm:gap-4 duration-300 transition-all rounded-lg py-4 px-3 sm:px-7 ${active ?" bg-button" : " bg-blue"}`}>
             {
                 active ? <BurgerActive/> : <BurgerNoActive/>
             }
             Каталог 
-        </button>
+        </Link>
     )
 }
 
