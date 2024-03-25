@@ -1,6 +1,5 @@
 import Title22 from 'components/BlockText/Title22/Title22'
 import LabelBlock from 'components/LabelsItems/LabelBlock'
-import React from 'react'
 
 const CategorySale = ({title, sale, imgSrc, styles}) => {
     return (

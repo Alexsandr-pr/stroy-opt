@@ -16,6 +16,7 @@ import ContactsPage from 'components/OrderPage/ContactsPage/ContactsPage';
 import NewsCardPage from 'components/NewsPage/NewsCardPage/NewsCardPage';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import Catalog from 'pages/Catalog/Catalog';
+import Sales from 'pages/Sales/Sales';
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
                     <Route path="contact" element={<ContactsPage/>}/>
 
                     <Route path="catalog" element={<Catalog/>}/>
-
+                    <Route path="sales" element={<Sales/>}/>
 
                     <Route path="*" element={<PageNotFound/>}/>
 

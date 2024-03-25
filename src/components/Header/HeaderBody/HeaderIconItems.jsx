@@ -10,12 +10,12 @@ const HeaderIconItems = () => {
     return (
         <div className='flex flex-row gap-1 sm:gap-4 xl:gap-6 items-center'>
             <div className="sm:block hidden">
-                <HeaderIconItem title={"Все акции"} children={<GiftIcon/>} />
+                <HeaderIconItem to={"sales"} title={"Все акции"} children={<GiftIcon/>} />
             </div>
-            <HeaderIconItem title={"Войти"} children={<UserIcon/>} />
-            <HeaderIconItem title={"Сравнение"} children={<RaitHeaderIcon/>} />
-            <HeaderIconItem title={"Избранное"} children={<LikeIconHeader/>} />
-            <HeaderIconItem title={"Корзина"} children={<Cardicon/>} />
+            <HeaderIconItem to={"user"} title={"Войти"} children={<UserIcon/>} />
+            <HeaderIconItem to={"rait"} title={"Сравнение"} children={<RaitHeaderIcon/>} />
+            <HeaderIconItem to={"likes"} title={"Избранное"} children={<LikeIconHeader/>} />
+            <HeaderIconItem to={"card"} title={"Корзина"} children={<Cardicon/>} />
         </div>
     )
 }

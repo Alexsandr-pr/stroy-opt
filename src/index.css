@@ -31,6 +31,10 @@
 		font-family:'HelveticaNeueCyr' ;
 	}
 
+.header-link.active {
+    color:#186FD4;
+}
+
 
 .swiper-pagination-bullet {
 	border:3px solid rgba(255, 255, 255, 1); /* измените на желаемый цвет */

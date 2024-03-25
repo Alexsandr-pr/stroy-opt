@@ -1,6 +1,43 @@
 import ButtonBlue from 'components/Buttons/ButtonBlue/ButtonBlue'
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+
+const data = [
+    {
+        "to":"company",
+        "title":"О компании",
+    },
+    {
+        "to":"payment",
+        "title":"Оплата",
+    },
+    {
+        "to":"order",
+        "title":"Доставка",
+    },
+    {
+        "to":"refund",
+        "title":"Возврат",
+    },
+    {
+        "to":"reviews",
+        "title":"Отзывы",
+    },
+    {
+        "to":"question",
+        "title":"Вопрос-ответ",
+    },
+    {
+        "to":"news",
+        "title":"Новости",
+    },
+    {
+        "to":"contact",
+        "title":"Контакты",
+    }
+]
+
+
 const HeaderTop = () => {
 
     const [active, setActive] = useState(false)
@@ -13,47 +50,18 @@ const HeaderTop = () => {
                 <span className={`w-6 h-[2px] bg-black absolute bottom-0 left-0 transition-all duration-500 ${active ? "-rotate-45 bottom-1/2 mb-[-1px]" : null}`}></span>
             </button>
             <nav className={`fixed w-full h-full   top-0  bg-fon z-30 lg:relative transition-all duration-500  lg:left-0 ${active ? "left-0" : "left-[-120%]"}`}>
-                <ul className="flex w-2/3 md:w-1/2 lg:w-auto lg:h-auto h-full p-6 lg:p-0  flex-col bg-white2 lg:bg-white items-end lg:flex-row z-40 gap-x-8 lg:flex-wrap gap-y-2">
-                    <li className="">
-                        <NavLink to="company" className={`lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap `}>
-                            О компании
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink to="payment" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
-                            Оплата
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink to="order" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
-                            Доставка
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink to="refund" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
-                            Возврат
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink to="reviews" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
-                            Отзывы
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink to="question" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
-                            Вопрос-ответ
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink to="news" className="lg:text-nav-link text-navlink-mobile text-sm  font-medium lg:font-normal leading-normal whitespace-nowrap">
-                            Новости
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink to="contact" className="lg:text-nav-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
-                            Контакты
-                        </NavLink>
-                    </li>
+                <ul className="flex w-2/3 md:w-1/2 lg:w-auto lg:h-auto h-full p-6 lg:p-0  flex-col bg-white2 lg:bg-white items-end lg:flex-row z-40 gap-x-8 lg:flex-wrap gap-y-2">                              
+                    {
+                        data.map(({to, title}) => {
+                            return (
+                                <li key={to} className="">
+                                    <NavLink to={to} className="lg:text-nav-link header-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
+                                        {title}
+                                    </NavLink>
+                                </li>
+                            )
+                        })
+                    }
                     
                 </ul>
             </nav>
