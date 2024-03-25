@@ -5,6 +5,7 @@ import { memo } from 'react'
 import ButtonCard from 'components/Buttons/ButtonCard/ButtonCard'
 import LikeIcon from 'components/Icon/LikeIcon'
 import RaitIcon from 'components/Icon/RaitIcon'
+import { Link } from 'react-router-dom'
 
 function propsCompare(prevProps, nextProps) {
     return prevProps.active === nextProps.active
@@ -31,7 +32,7 @@ const BlockTovarItem = memo(function(props) {
     }
 
     return (
-        <article className='flex flex-col gap-2.5 group   duration-300 transition-all rounded-lg'>
+        <Link to="card" className='flex flex-col gap-2.5 group   duration-300 transition-all rounded-lg'>
             <div className="p-4 relative flex justify-center items-center">
                 <img className='max-w-full' src={imgSrc} alt={title} />
                 <div className="absolute left-0 top-0">
@@ -55,7 +56,7 @@ const BlockTovarItem = memo(function(props) {
                     <RaitIcon/>
                 </div>
             </div>
-        </article>
+        </Link>
     )
 }, propsCompare)
 

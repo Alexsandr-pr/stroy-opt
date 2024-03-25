@@ -24,11 +24,11 @@ const Home = () => {
             <CategoryBlock/>
             <CategorySaleSlider/>
 
-            <BlockTovarComponent title={"Хиты продаж"}/>
+            <BlockTovarComponent title={"Хиты продаж"} category={true}/>
             <div className="bg-grey2">
                 <BrandBlock/>
             </div>
-            <BlockTovarComponent title={"Лучшие предложения"}/>
+            <BlockTovarComponent title={"Лучшие предложения"} category={true}/>
             <InfoBlockParent>
                 <InfoBlockContentMain/>
             </InfoBlockParent>

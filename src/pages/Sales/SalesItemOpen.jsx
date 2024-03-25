@@ -6,7 +6,7 @@ import SaleBlock from "components/OrderPage/SaleBlock"
 
 import image from "../../assets/image-news.png";
 import PromocodeButton from "components/Buttons/PromocodeButton/PromocodeButton"
-import { useState } from "react"
+
 
 const data = {
         "textShort": "Уважаемые клиенты, рады объявить вам о нашей специальной акции на лакокрасочные материалы! Теперь вы можете придать своему дому новое великолепное обличие по невероятно выгодным ценам. Это ваш шанс создать уют и красоту в вашем жилище без лишних затрат!",

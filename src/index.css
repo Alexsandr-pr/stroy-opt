@@ -7,6 +7,9 @@
 
 
 
+
+
+
 	@font-face {
 		font-family: 'HelveticaNeueCyr';
 		src: local('HelveticaNeueCyr-Bold'), url('./fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
@@ -27,9 +30,25 @@
 		font-style: normal;
 		
 	}
+
+
+
+
 	body {
 		font-family:'HelveticaNeueCyr' ;
 	}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+main {
+    flex: 0 1 100%;
+}
+
 
 .header-link.active {
     color:#186FD4;

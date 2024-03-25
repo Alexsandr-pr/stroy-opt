@@ -18,7 +18,7 @@ import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import Catalog from 'pages/Catalog/Catalog';
 import Sales from 'pages/Sales/Sales';
 import SalesItemOpen from 'pages/Sales/SalesItemOpen';
-
+import CardPage from 'pages/CardPage/CardPage';
 
 function App() {
     return (
@@ -38,9 +38,8 @@ function App() {
                     <Route path="contact" element={<ContactsPage/>}/>
 
                     <Route path="catalog" element={<Catalog/>}/>
-                    <Route path="sales" element={<Sales/>}>
-
-                    </Route>
+                    <Route path="card/*" element={<CardPage/>}/>
+                    <Route path="sales" element={<Sales/>}/>
                     <Route path="sales/sales_open" element={<SalesItemOpen/>}/>
 
                     <Route path="*" element={<PageNotFound/>}/>

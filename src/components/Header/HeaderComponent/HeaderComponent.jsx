@@ -4,9 +4,11 @@ import HeaderBody from '../HeaderBody/HeaderBody'
 
 const HeaderComponent = () => {
     return (
-        <header className='max-w-[1654px] mx-auto px-4'>
-            <HeaderTop/>
-            <HeaderBody/>
+        <header className='w-full'>
+            <div className="max-w-[1654px] mx-auto px-4">
+                <HeaderTop/>
+                <HeaderBody/>
+            </div>
         </header>
     )
 }
