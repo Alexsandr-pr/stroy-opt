@@ -385,16 +385,13 @@ const data = [
     }
 ]
 
-
-
-
 const SalesItems = () => {
     return (
-        <div className="grid grid-cols-4 gap-5 mb-14">
+        <div className="grid grid-cols-1 m46:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-14">
             {
-                data.map((item) => {
+                data.map((item, i) => {
                     return (
-                        <SalesItem {...item}/>
+                        <SalesItem key={i} {...item}/>
                     )
                 })
             }
