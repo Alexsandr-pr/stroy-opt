@@ -16,7 +16,6 @@ import BlockTovarComponent from 'components/BlockTovar/BlockTovarComponent/Block
 const Home = () => {
     return (
         <>
-       
             <div className="max-w-[1654px] mx-auto px-4">
                 <MainSliderHome/>
                 <InfoPromo/>

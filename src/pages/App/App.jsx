@@ -17,6 +17,7 @@ import NewsCardPage from 'components/NewsPage/NewsCardPage/NewsCardPage';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import Catalog from 'pages/Catalog/Catalog';
 import Sales from 'pages/Sales/Sales';
+import SalesItemOpen from 'pages/Sales/SalesItemOpen';
 
 
 function App() {
@@ -37,7 +38,10 @@ function App() {
                     <Route path="contact" element={<ContactsPage/>}/>
 
                     <Route path="catalog" element={<Catalog/>}/>
-                    <Route path="sales" element={<Sales/>}/>
+                    <Route path="sales" element={<Sales/>}>
+
+                    </Route>
+                    <Route path="sales/sales_open" element={<SalesItemOpen/>}/>
 
                     <Route path="*" element={<PageNotFound/>}/>
 

@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const AsideParentPage = ({left, right}) => {
     return (

@@ -1,4 +1,5 @@
 import CategorySale from "components/Category/CategorySale/CategorySaleItem"
+import { Link } from "react-router-dom"
 
 
 const SalesItem = ({data, title}) => {
@@ -6,7 +7,7 @@ const SalesItem = ({data, title}) => {
         <article className="flex flex-col gap-2">
             <CategorySale {...data}/>
             <h3 className="text-xl text-main-title font-medium">{title}</h3>
-            <button className="text-base text-left font-medium text-blue underline leading-relaxed">Подробнее об акции</button>
+            <Link to={"sales_open"} className="text-base text-left font-medium text-blue underline leading-relaxed">Подробнее об акции</Link>
         </article>
     )
 }
