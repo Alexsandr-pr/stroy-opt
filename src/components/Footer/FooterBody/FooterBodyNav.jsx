@@ -5,45 +5,46 @@ import { Link } from 'react-router-dom'
 
 const data = [
     {
-        "to":"",
+        "to":"company",
         "title":"О компании"
     },
     {
-        "to":"",
+        "to":"question",
         "title":"Вопрос-ответ"
     },
     {
-        "to":"",
+        "to":"payment",
         "title":"Оплата"
     },
     {
-        "to":"",
+        "to":"news",
         "title":"Новости"
     },
     {
-        "to":"",
+        "to":"order",
         "title":"Доставка"
     },
     {
-        "to":"",
+        "to":"contact",
         "title":"Контакты"
     },
     {
-        "to":"",
+        "to":"refund",
         "title":"Возврат"
     },
     {
-        "to":"",
+        "to":"user",
         "title":"Вход / Регистрация"
     },
     {
-        "to":"",
+        "to":"reviews",
         "title":"Отзывы"
     },
     {
-        "to":"",
+        "to":"sales",
         "title":"Все акции"
     },
+
 ]
 
 

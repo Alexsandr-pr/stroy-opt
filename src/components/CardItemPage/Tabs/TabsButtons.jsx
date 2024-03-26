@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
 import TabsButton from './TabsButton';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeParamTabs } from '../../../store/cardReducer';
 
 const data = [
     {
@@ -20,16 +20,13 @@ const data = [
     }
 ]
 
-
-
-
-
 const TabsButtons = () => {
 
-    const [param, setParam] = useState("params");
-    const onChangeParam = (item) => setParam(item)
-    
+    const tabsParam = useSelector(state => state.card.typeParam)
 
+    const dispatch = useDispatch();
+    const onChangeTabs = (type) => dispatch(changeParamTabs(type)) 
+    
     return (
         <Swiper
             className='border-b border-b-[#EDF0F2] relative z-10 mb-8'
@@ -40,9 +37,8 @@ const TabsButtons = () => {
                 data.map((item) => {
                     return (
                         <SwiperSlide key={item.type} className='w-auto '>
-                            <TabsButton param={param} onChangeParam={onChangeParam} {...item}/>
+                            <TabsButton param={tabsParam} cb={onChangeTabs} {...item}/>
                         </SwiperSlide>
-
                     )
                 })
             }
