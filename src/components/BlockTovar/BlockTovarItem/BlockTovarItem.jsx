@@ -6,6 +6,8 @@ import ButtonCard from 'components/Buttons/ButtonCard/ButtonCard'
 import LikeIcon from 'components/Icon/LikeIcon'
 import RaitIcon from 'components/Icon/RaitIcon'
 import { Link } from 'react-router-dom'
+import Article from '../blocks/Article'
+import BlockPrice from '../blocks/BlockPrice'
 
 function propsCompare(prevProps, nextProps) {
     return prevProps.active === nextProps.active
@@ -14,6 +16,7 @@ function propsCompare(prevProps, nextProps) {
 
 
 const BlockTovarItem = memo(function(props) {
+
     const {
         title, 
         imgSrc,
@@ -39,15 +42,9 @@ const BlockTovarItem = memo(function(props) {
                     <LabelBlock styles={type.orange} text={"хит"} />
                 </div>
             </div>
-            <p className='text-[13px] text-article font-normal '>Артикул: {article}</p>
+            <Article article={article}/>
             <h3 className='text-black  text-ellipsis text-sm sm:text-lg h-20  font-medium leading-normal'>{title}</h3>
-            <div className='text-price font-medium text-lg sm:text-xl leading-none flex gap-2 items-center'>
-                <div className="flex flex-col items-center gap-1 sm:gap-2 flex-wrap  m46:flex-row">
-                    <p className='text-grey-sale font-normal text-sm sm:text-[15px] leading-6 line-through'>15999</p> 
-                    <p>{price}</p>
-                </div>
-                <LabelBlock text={"-15%"} styles={type.green}/>
-            </div>
+            <BlockPrice price={price} />
             <div className='flex justify-between gap-2.5'>
                 <ButtonCard active={active} id={id} changeActive={changeActive}/>
                 {button}

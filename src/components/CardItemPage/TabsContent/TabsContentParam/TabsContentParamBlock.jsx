@@ -83,7 +83,7 @@ const TabsContentParamBlock = () => {
     return (
         <div>
             <h3 className="text-main-title font-medium text-xl mb-5">Характеристики товара «Дрель-шуруповерт аккумуляторная MAKITA DF 347DWE14 В 1,5 А/ч»</h3>
-            <TabsContentParamsItems data={data}/>
+            <TabsContentParamsItems styles={" columns-1 lg:columns-2 mb-8"} data={data}/>
             <Text15 text={"Производитель оставляет за собой право без уведомления продавца менять характеристики, внешний вид, комплектацию товара и место его производства. Указанная информация не является публичной офертой."}/>
         </div>
     )

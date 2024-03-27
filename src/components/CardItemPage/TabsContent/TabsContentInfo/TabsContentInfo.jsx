@@ -1,6 +1,6 @@
 import Title22 from "components/BlockText/Title22/Title22"
 
-import image from "./img/image24.jpg"
+import image from "./img/image24.webp"
 import ListItems from "components/ListItems/ListItems"
 
 const data = [

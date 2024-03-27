@@ -2,9 +2,9 @@ import TabsContentParam from "./TabsContentParam"
 
 
 
-const TabsContentParamsItems = ({data}) => {
+const TabsContentParamsItems = ({data, styles}) => {
     return (
-        <ul className="columns-1 lg:columns-2 gap-24 mb-8">
+        <ul className={`gap-24 ${ styles}`}>
             {
                 data.map((item, i) => {
                     return (

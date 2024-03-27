@@ -1,4 +1,5 @@
 import BlockTovarComponent from "components/BlockTovar/BlockTovarComponent/BlockTovarComponent"
+import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs"
 import CardItemPage from "components/CardItemPage/CardItemPage"
 
 
@@ -13,7 +14,8 @@ const CardPage = () => {
     return (
 
         <div className="max-w-[1654px] mx-auto px-4">
-
+            <Breadcrumbs page={"Электроинструмент"}/>
+            
             <CardItemPage/>
 
             <div className="mb-20">
