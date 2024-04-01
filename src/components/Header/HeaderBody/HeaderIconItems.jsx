@@ -15,7 +15,7 @@ const HeaderIconItems = () => {
             <HeaderIconItem to={"user"} title={"Войти"} children={<UserIcon/>} />
             <HeaderIconItem to={"rait"} title={"Сравнение"} children={<RaitHeaderIcon/>} />
             <HeaderIconItem to={"likes"} title={"Избранное"} children={<LikeIconHeader/>} />
-            <HeaderIconItem to={"card"} title={"Корзина"} children={<Cardicon/>} />
+            <HeaderIconItem to={"admin"} title={"Корзина"} children={<Cardicon/>} />
         </div>
     )
 }

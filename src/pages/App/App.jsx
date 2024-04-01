@@ -19,6 +19,7 @@ import Catalog from 'pages/Catalog/Catalog';
 import Sales from 'pages/Sales/Sales';
 import SalesItemOpen from 'pages/Sales/SalesItemOpen';
 import CardPage from 'pages/CardPage/CardPage';
+import Admin from 'pages/Admin/Admin';
 
 function App() {
     return (
@@ -44,6 +45,9 @@ function App() {
 
                     <Route path="*" element={<PageNotFound/>}/>
 
+
+
+                    <Route path="admin" element={<Admin/>}/>
                 </Route>
             </Routes>
         </>

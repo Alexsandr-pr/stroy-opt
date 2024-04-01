@@ -4,10 +4,15 @@ const InputBlock = ({
     
     type,
     name,
-    placeholder
+    placeholder,
+    value,
+    setValue
 }) => {
+    
     return (
         <input 
+                onChange={(e) => setValue(e)}
+                value={value}
                 required={true}
                 type={type} 
                 name={name} 
