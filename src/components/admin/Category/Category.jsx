@@ -12,7 +12,7 @@ const Category = () => {
 
 
     const arrayu =  useCallback(() => {
-        console.log("fetching")
+        console.log("fetching");
         dispatch(getCategory())
     }, [])
     
