@@ -27,7 +27,6 @@ const CategoryAdd = () => {
                 <BigBluebutton cb={addCategoryFunction} text={"Send"}/>
             </form>
         </div>
-        
     )
 }
 
