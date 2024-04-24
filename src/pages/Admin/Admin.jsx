@@ -1,15 +1,12 @@
-import Category from "components/admin/Category/Category"
-import TypeProduct from "components/admin/TypeProduct/TypeProduct"
-import TypeTool from "components/admin/TypeTool/TypeTool"
+import AdminPage from "components/admin/AdminPage/AdminPage"
+
 
 
 
 const Admin = () => {
     return (
         <>
-            <Category/>
-            <TypeTool/>
-            <TypeProduct/>
+            <AdminPage/>
         </>
     )
 }

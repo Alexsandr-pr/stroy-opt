@@ -1,32 +1,63 @@
 import TypeToolAction from "action/typeToolAction";
 import BigBluebutton from "components/Buttons/BigBlueButton/BigBluebutton";
 import InputBlock from "components/Forms/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import CategoryAction from "action/categoryAction"
+import LabelCheckbox from "components/Forms/LabelCheckbox"
 
 
 const TypeTool = () => {
-    const [type, setType] = useState("");
     const [title, setTitle] = useState("");
     const [_id, setId] = useState("");
-
-    const onSetType = (e) => setType(e.target.value);
+    const dispatch = useDispatch()
     const onSetTitle = (e) => setTitle(e.target.value);
-    const onSetid = (e) => setId(e.target.value);
+
+
+
+
+    const onSetid = (id ) =>  {
+        setId(id)
+    }
+
+
+    const category = useSelector(store => store.admin.category);
+
+    useEffect(() => {
+        dispatch(CategoryAction.getCategory())
+    }, [])
+
+
 
     const addCategoryFunction = async (e) => {
         e.preventDefault();
-        await TypeToolAction.addTypeTool(type, title, _id)
-        setType("");
+
+        console.log(_id)
+        if(_id !== "")  {
+            await TypeToolAction.addTypeTool( title, _id)
+        }
         setTitle("");
-        setId("");
     }
 
     return (
+
         <div className="max-w-[1654px] mx-auto px-4">
             <form className='md:w-1/2 w-full flex flex-col gap-5'>
-                <InputBlock setValue={onSetType} value={type} placeholder={"type tool type"} name={"type"} type={"text"}/>
                 <InputBlock setValue={onSetTitle} value={title} placeholder={"Type tool title"} name={"title"} type={"text"}/>
-                <InputBlock setValue={onSetid} value={_id} placeholder={"Type tool id"} name={"id"} type={"text"}/>
+
+                <div className="flex flex-col gap-5 p-10">
+                    <ul className={`flex-col mb-4 gap-4 flex`}>
+                        {
+                            category.map((item, i) => {
+                                return (
+                                    <li onClick={() => onSetid(item._id)} key={i}>
+                                        <LabelCheckbox type={"radio"} category={category} text={item.title}/>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
                 <BigBluebutton cb={addCategoryFunction} text={"Send"}/>
             </form>
         </div>

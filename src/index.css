@@ -115,13 +115,16 @@ main {
         gap: 10px;
     }
 
-    .checked input[type="checkbox"]:checked ~ .checked__span {
+    .checked input[type="checkbox"]:checked ~ .checked__span,
+    .checked input[type="radio"]:checked ~ .checked__span {
         background: #186FD4;
     }
-    .checked input[type="checkbox"]:checked ~ .checked__span::after {
+    .checked input[type="checkbox"]:checked ~ .checked__span::after,
+    .checked input[type="radio"]:checked ~ .checked__span::after {
         opacity: 1;
     }
-    .checked input[type="checkbox"] {
+    .checked input[type="checkbox"],
+    .checked input[type="radio"] {
         display: none;
     }
 .checked__span {
