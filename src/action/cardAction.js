@@ -3,7 +3,7 @@ import { API_URL } from "../../config"
 
 
 class CardAction {
-    async addCard(title, files, code, sale, brandId, price, categoryId, typeToolId, typeProductId, params) {
+    async addCard(title, files, code, sale, brandId, price, categoryId, typeToolId, typeProductId, params, description) {
         try {
             
             const formData = new FormData();

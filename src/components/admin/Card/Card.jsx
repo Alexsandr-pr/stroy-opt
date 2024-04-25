@@ -1,6 +1,6 @@
 import BigBluebutton from "components/Buttons/BigBlueButton/BigBluebutton";
 import InputBlock from "components/Forms/Input";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import cardAction from "action/cardAction";
 import { useDispatch, useSelector } from "react-redux";
 import CategoryAction from "action/categoryAction";
@@ -9,6 +9,8 @@ import TypeToolAction from "action/typeToolAction";
 import BrandAction from "action/brandAction";
 import LabelCheckbox from "components/Forms/LabelCheckbox";
 import HeaderBlockTitle from "components/BlockText/HeaderBlockTitle/HeaderBlockTitle";
+import ButtonCategory from "components/Buttons/ButtonCategory/ButtonCategory";
+
 
 
 const Card = () => {
@@ -21,11 +23,12 @@ const Card = () => {
     const [categoryId, setCategoryId] = useState("")
     const [typeToolId, setTypeToolid] = useState("")
     const [typeProductId, setTypeProductId] = useState("")
+    const [description, setDescription] = useState("")
 
     const onSetTitle = (e) => setTitle(e.target.value)
     const onSetCode = (e) => setCode(e.target.value)
     const onSetSale = (e) => setSale(e.target.value)
-
+    const onSetDescription = (e) => setDescription(e.target.innerText)
     const onSetBrandId = (id) => setBrandId(id)
     const onSetPrice = (e) => setPrice(e.target.value)
     const onSetCategoryId = (id) => setCategoryId(id)
@@ -46,7 +49,6 @@ const Card = () => {
 
     async function onDropHandler(e) {
         e.preventDefault();
-
         const files = [...e.dataTransfer.files]; 
         setFiles(files)
         setDrag(false);
@@ -78,7 +80,7 @@ const Card = () => {
     const addCategoryFunction = async (e) => {
         e.preventDefault();
         if(categoryId !== "" && typeToolId !== "" && typeProductId !== "" && brandId !== ""  ) {
-            await cardAction.addCard(title, files, code, sale, brandId, price, categoryId, typeToolId, typeProductId, formData);
+            await cardAction.addCard(title, files, code, sale, brandId, price, categoryId, typeToolId, typeProductId, formData, description);
         }
     }
 
@@ -97,15 +99,77 @@ const Card = () => {
     
     const category = useSelector(store => store.admin.category);
 
+
+    const contentEditableRef = useRef(null);
+
+
+    const wrapSelectionWithTag = () => {
+        const selection = window.getSelection();
+        if (selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0);
+            const selectedText = range.toString();
+            const newElement = document.createElement('ul');
+            const listItem = document.createElement('li');
+            listItem.textContent = selectedText;
+            newElement.appendChild(listItem);
+            range.deleteContents();
+            range.insertNode(newElement);
+        }
+    };
+
+    const wrapSelectionWithTagStrong = (tag) => {
+        const selection = window.getSelection();
+        if (selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0);
+            const selectedText = range.toString();
+            const newElement = document.createElement(tag);
+            newElement.textContent = selectedText;
+            range.deleteContents();
+            range.insertNode(newElement);
+        }
+    };
+
+    const getContent = () => {
+        if(contentEditableRef.current) {
+            const contentText = contentEditableRef.current.innerText;
+            const contentHtml = contentEditableRef.current.innerHTML;
+            
+            console.log(contentHtml)
+        }
+    }
+
+
+    useEffect(() => {
+        getContent()
+    }, [description])
+
+
     return (
         <form className="max-w-[1654px] mx-auto px-4 flex gap-6" >
             <div className='md:w-1/2 w-full flex flex-col gap-5'>
-                
+
+            
+            <HeaderBlockTitle  title={"Добавьте название товара  "}/>
                 <InputBlock setValue={onSetTitle} value={title} placeholder={"Card title"} name={"title"} type={"text"}/>
 
+                <HeaderBlockTitle  title={"Добавьте артикул  "}/>
                 <InputBlock setValue={onSetCode} value={code} placeholder={"Card code articul"} name={"title"} type={"text"}/>
                 
+                <HeaderBlockTitle  title={"Добавьте описание "}/>
+                <div  
+                    ref={contentEditableRef}
+                    
+                    onInput={onSetDescription} 
+                    contentEditable 
+                    className="w-full h-auto p-8 border border-dashed rounded-sm outline-none">
 
+                </div>
+                <div className="flex gap-4">
+                    <BigBluebutton  type={"button"} text={"UL"} cb={e => wrapSelectionWithTag("ul")}/>
+                    <BigBluebutton type={"button"} text={"h3"} cb={e => wrapSelectionWithTagStrong("h3")}/>
+                    <BigBluebutton type={"button"} text={"strong"} cb={e => wrapSelectionWithTagStrong("strong")}/>
+                </div>
+              
                 <HeaderBlockTitle  title={" Укажите бренд "}/>
                 <ul className={`flex-col mb-4 gap-4 flex`}>
                         {
@@ -118,8 +182,10 @@ const Card = () => {
                             })
                         }
                 </ul>
+                <HeaderBlockTitle  title={"Укажите цену "}/>
                 <InputBlock setValue={onSetPrice} value={price} placeholder={"Card price"} name={"title"} type={"text"}/>
-                <InputBlock setValue={onSetSale} value={sale} placeholder={"Card category id"} name={"title"} type={"text"}/>
+                <HeaderBlockTitle  title={"Укажите скидку на данный товар"}/>
+                <InputBlock setValue={onSetSale} value={sale} placeholder={"Card sale"} name={"title"} type={"text"}/>
                 <HeaderBlockTitle  title={"Выберите категорию "}/>
                 <ul className={`flex-col mb-4 gap-4 flex`}>
                         {
@@ -160,35 +226,38 @@ const Card = () => {
                         }
                     </ul>
 
-                <div className="w-80 h-24 bg-price"
+                <input onChange={e => onDropHandler(e)} type={"file"} className="w-full h-24 bg-price"
+                
                         onDragStart={e => dragStartHandler(e)}
                         onDragLeave={e => dragLeaveHandler(e)}
                         onDragOver={e => dragStartHandler(e)}
                         onDrop={e => onDropHandler(e)} >
-                </div>
+                </input>
                 <BigBluebutton cb={addCategoryFunction} text={"Send"}/>
+                
             </div>
 
 
 
             <div>
                 <div className="flex flex-col gap-3">
-                {
-                    [...Array(count)].map((_, index) => (
-                        <InputBlocks
-                            key={index}
-                            index={index}
-                            formData={formData[index]}
-                            handleInputChange={handleInputChange}
-                        />
-                    ))
-                }
+                    {
+                        [...Array(count)].map((_, index) => (
+                            <InputBlocks
+                                key={index}
+                                index={index}
+                                formData={formData[index]}
+                                handleInputChange={handleInputChange}
+                            />
+                        ))
+                    }
                 </div>
                 <div className="mt-12 grid grid-cols-2 gap-4">
                     <BigBluebutton cb={plusNumber} text={"Добавить еще поле ввода"} />
                     <BigBluebutton cb={minusNumber} text={"Удалить поле ввода"} />
                 </div>
             </div>
+
 
         </form>
     )
@@ -206,12 +275,16 @@ function InputBlocks({ index, formData, handleInputChange }) {
 
     return (
         <div className="grid grid-cols-2 gap-4 ">
-
             <InputBlock value={formData.key} setValue={handleKeyChange} placeholder={"Характеристика"} name={"title"} type={"text"}/>
-            <InputBlock value={formData.value} setValue={handleValueChange} placeholder={"Характеристика"} name={"title"} type={"text"}/>
+            <InputBlock value={formData.value} setValue={handleValueChange} placeholder={"Параметр"} name={"title"} type={"text"}/>
         </div>
     );
 }
+
+
+
+
+
 
 
 export default Card
