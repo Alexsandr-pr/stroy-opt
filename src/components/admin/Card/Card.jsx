@@ -9,14 +9,13 @@ import TypeToolAction from "action/typeToolAction";
 import BrandAction from "action/brandAction";
 import LabelCheckbox from "components/Forms/LabelCheckbox";
 import HeaderBlockTitle from "components/BlockText/HeaderBlockTitle/HeaderBlockTitle";
-import ButtonCategory from "components/Buttons/ButtonCategory/ButtonCategory";
+
 
 
 
 const Card = () => {
     const [title, setTitle] = useState("");
     const [files, setFiles] = useState([]);
-    const [code, setCode] = useState(0);
     const [sale, setSale] = useState(0);
     const [brandId, setBrandId] = useState("")
     const [price, setPrice] = useState(0);
@@ -24,9 +23,10 @@ const Card = () => {
     const [typeToolId, setTypeToolid] = useState("")
     const [typeProductId, setTypeProductId] = useState("")
     const [description, setDescription] = useState("")
+    const [current, setCurrent] = useState("")
 
+    const onSetCurrent= (e) => setCurrent(e.target.value)
     const onSetTitle = (e) => setTitle(e.target.value)
-    const onSetCode = (e) => setCode(e.target.value)
     const onSetSale = (e) => setSale(e.target.value)
     const onSetDescription = (e) => setDescription(e.target.innerText)
     const onSetBrandId = (id) => setBrandId(id)
@@ -52,6 +52,13 @@ const Card = () => {
         const files = [...e.dataTransfer.files]; 
         setFiles(files)
         setDrag(false);
+    }
+
+    async function onAddFiles(e) {
+        e.preventDefault();
+        const files = [...e.target.files];
+        setFiles(files)
+        
     }
 
     const [count, setCount] = useState(1); // Счетчик для количества блоков
@@ -80,7 +87,8 @@ const Card = () => {
     const addCategoryFunction = async (e) => {
         e.preventDefault();
         if(categoryId !== "" && typeToolId !== "" && typeProductId !== "" && brandId !== ""  ) {
-            await cardAction.addCard(title, files, code, sale, brandId, price, categoryId, typeToolId, typeProductId, formData, description);
+            await cardAction.addCard(title, files, sale, brandId, price, categoryId, typeToolId, typeProductId, formData, description);
+            
         }
     }
 
@@ -92,13 +100,13 @@ const Card = () => {
         dispatch(TypeProductAction.getTypeProduct())
         dispatch(TypeToolAction.getTypeTool())
         dispatch(BrandAction.getBrand())
+
     }, [])
+
     const brand = useSelector(store => store.admin.brand)
     const typeTool = useSelector(store => store.admin.typeTool);
     const typeProduct = useSelector(store => store.admin.typeProduct);
-    
     const category = useSelector(store => store.admin.category);
-
 
     const contentEditableRef = useRef(null);
 
@@ -134,7 +142,7 @@ const Card = () => {
             const contentText = contentEditableRef.current.innerText;
             const contentHtml = contentEditableRef.current.innerHTML;
             
-            console.log(contentHtml)
+            setDescription(contentHtml)
         }
     }
 
@@ -152,9 +160,6 @@ const Card = () => {
             <HeaderBlockTitle  title={"Добавьте название товара  "}/>
                 <InputBlock setValue={onSetTitle} value={title} placeholder={"Card title"} name={"title"} type={"text"}/>
 
-                <HeaderBlockTitle  title={"Добавьте артикул  "}/>
-                <InputBlock setValue={onSetCode} value={code} placeholder={"Card code articul"} name={"title"} type={"text"}/>
-                
                 <HeaderBlockTitle  title={"Добавьте описание "}/>
                 <div  
                     ref={contentEditableRef}
@@ -182,6 +187,9 @@ const Card = () => {
                             })
                         }
                 </ul>
+
+                <HeaderBlockTitle  title={"Укажите количество едениц товара добавляемого на склад "}/>
+                <InputBlock setValue={onSetCurrent} value={current} placeholder={"Card price"} name={"title"} type={"number"}/>
                 <HeaderBlockTitle  title={"Укажите цену "}/>
                 <InputBlock setValue={onSetPrice} value={price} placeholder={"Card price"} name={"title"} type={"text"}/>
                 <HeaderBlockTitle  title={"Укажите скидку на данный товар"}/>
@@ -226,7 +234,7 @@ const Card = () => {
                         }
                     </ul>
 
-                <input onChange={e => onDropHandler(e)} type={"file"} className="w-full h-24 bg-price"
+                <input onInput={e => onAddFiles(e)} type={"file"} multiple className="w-full h-24 bg-price"
                 
                         onDragStart={e => dragStartHandler(e)}
                         onDragLeave={e => dragLeaveHandler(e)}
