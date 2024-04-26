@@ -9,6 +9,7 @@ import TypeToolAction from "action/typeToolAction";
 import BrandAction from "action/brandAction";
 import LabelCheckbox from "components/Forms/LabelCheckbox";
 import HeaderBlockTitle from "components/BlockText/HeaderBlockTitle/HeaderBlockTitle";
+import Textarea from "components/Forms/Textarea/Textarea";
 
 
 
@@ -17,52 +18,52 @@ const Card = () => {
     const [title, setTitle] = useState("");
     const [files, setFiles] = useState([]);
     const [sale, setSale] = useState(0);
-    const [brandId, setBrandId] = useState("")
+    const [brandId, setBrandId] = useState("");
     const [price, setPrice] = useState(0);
-    const [categoryId, setCategoryId] = useState("")
-    const [typeToolId, setTypeToolid] = useState("")
-    const [typeProductId, setTypeProductId] = useState("")
-    const [description, setDescription] = useState("")
-    const [current, setCurrent] = useState("")
+    const [categoryId, setCategoryId] = useState("");
+    const [typeToolId, setTypeToolid] = useState("");
+    const [typeProductId, setTypeProductId] = useState("");
+    const [description, setDescription] = useState("");
+    const [current, setCurrent] = useState("");
 
-    const onSetCurrent= (e) => setCurrent(e.target.value)
-    const onSetTitle = (e) => setTitle(e.target.value)
-    const onSetSale = (e) => setSale(e.target.value)
-    const onSetDescription = (e) => setDescription(e.target.innerText)
-    const onSetBrandId = (id) => setBrandId(id)
-    const onSetPrice = (e) => setPrice(e.target.value)
-    const onSetCategoryId = (id) => setCategoryId(id)
-    const onSetTypeToolId= (id) => setTypeToolid(id)
-    const onSetProductId = (id) => setTypeProductId(id)
+    const onSetCurrent= (e) => setCurrent(e.target.value);
+    const onSetTitle = (e) => setTitle(e.target.value);
+    const onSetSale = (e) => setSale(e.target.value);
+    const onSetDescription = (e) => setDescription(e.target.innerText);
+    const onSetBrandId = (id) => setBrandId(id);
+    const onSetPrice = (e) => setPrice(e.target.value);
+    const onSetCategoryId = (id) => setCategoryId(id);
+    const onSetTypeToolId= (id) => setTypeToolid(id);
+    const onSetProductId = (id) => setTypeProductId(id);
 
-    const [drag, setDrag] = useState(false)
+    const [drag, setDrag] = useState(false);
     
     function dragStartHandler(e) {
-        e.preventDefault()
-        setDrag(true)
+        e.preventDefault();
+        setDrag(true);
     }
 
     function dragLeaveHandler(e) {
-        e.preventDefault()
-        setDrag(false)
+        e.preventDefault();
+        setDrag(false);
     }
 
     async function onDropHandler(e) {
         e.preventDefault();
         const files = [...e.dataTransfer.files]; 
-        setFiles(files)
+        setFiles(files);
         setDrag(false);
     }
 
     async function onAddFiles(e) {
         e.preventDefault();
         const files = [...e.target.files];
-        setFiles(files)
+        setFiles(files);
         
     }
 
-    const [count, setCount] = useState(1); // Счетчик для количества блоков
-    const [formData, setFormData] = useState([{ key: '', value: '' }]); // Состояние для данных формы
+    const [count, setCount] = useState(1);
+    const [formData, setFormData] = useState([{ key: '', value: '' }]); 
 
     
     const plusNumber = () => {
@@ -96,12 +97,12 @@ const Card = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(CategoryAction.getCategory())
-        dispatch(TypeProductAction.getTypeProduct())
-        dispatch(TypeToolAction.getTypeTool())
-        dispatch(BrandAction.getBrand())
+        dispatch(CategoryAction.getCategory());
+        dispatch(TypeProductAction.getTypeProduct());
+        dispatch(TypeToolAction.getTypeTool());
+        dispatch(BrandAction.getBrand());
 
-    }, [])
+    }, []);
 
     const brand = useSelector(store => store.admin.brand)
     const typeTool = useSelector(store => store.admin.typeTool);
@@ -142,14 +143,14 @@ const Card = () => {
             const contentText = contentEditableRef.current.innerText;
             const contentHtml = contentEditableRef.current.innerHTML;
             
-            setDescription(contentHtml)
+            setDescription(contentHtml);
         }
     }
 
 
     useEffect(() => {
-        getContent()
-    }, [description])
+        getContent();
+    }, [description]);
 
 
     return (
@@ -160,13 +161,15 @@ const Card = () => {
             <HeaderBlockTitle  title={"Добавьте название товара  "}/>
                 <InputBlock setValue={onSetTitle} value={title} placeholder={"Card title"} name={"title"} type={"text"}/>
 
+
                 <HeaderBlockTitle  title={"Добавьте описание "}/>
                 <div  
+                    id="contentEditable"
                     ref={contentEditableRef}
                     
                     onInput={onSetDescription} 
                     contentEditable 
-                    className="w-full h-auto p-8 border border-dashed rounded-sm outline-none">
+                    className="w-full min-h-16 h-auto p-4 border border-dashed rounded-sm outline-none">
 
                 </div>
                 <div className="flex gap-4">
@@ -189,11 +192,11 @@ const Card = () => {
                 </ul>
 
                 <HeaderBlockTitle  title={"Укажите количество едениц товара добавляемого на склад "}/>
-                <InputBlock setValue={onSetCurrent} value={current} placeholder={"Card price"} name={"title"} type={"number"}/>
+                <InputBlock setValue={onSetCurrent} value={current} placeholder={"Card current"} name={"current"} type={"number"}/>
                 <HeaderBlockTitle  title={"Укажите цену "}/>
-                <InputBlock setValue={onSetPrice} value={price} placeholder={"Card price"} name={"title"} type={"text"}/>
+                <InputBlock setValue={onSetPrice} value={price} placeholder={"Card price"} name={"price"} type={"text"}/>
                 <HeaderBlockTitle  title={"Укажите скидку на данный товар"}/>
-                <InputBlock setValue={onSetSale} value={sale} placeholder={"Card sale"} name={"title"} type={"text"}/>
+                <InputBlock setValue={onSetSale} value={sale} placeholder={"Card sale"} name={"sale"} type={"text"}/>
                 <HeaderBlockTitle  title={"Выберите категорию "}/>
                 <ul className={`flex-col mb-4 gap-4 flex`}>
                         {

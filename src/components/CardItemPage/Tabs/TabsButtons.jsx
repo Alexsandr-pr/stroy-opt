@@ -36,7 +36,7 @@ const TabsButtons = () => {
             {
                 data.map((item) => {
                     return (
-                        <SwiperSlide key={item.type} className='w-auto '>
+                        <SwiperSlide key={item.type} className='max-w-fit '>
                             <TabsButton param={tabsParam} cb={onChangeTabs} {...item}/>
                         </SwiperSlide>
                     )

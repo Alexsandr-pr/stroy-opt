@@ -73,7 +73,7 @@ const HistoryItems = () => {
                     )
                 })
             }
-           
+
             <div className='relative flex flex-col px-6 sm:items-center py-9 border border-blue border-[3px] rounded-lg '>
                 <div className=" text-blue text-[27px] font-bold text-left sm:text-center leading-none ">Сегодня</div>
                 <BlockInfoItems styles={"grid grid-cols-1 m36:grid-cols-2 gap-12 md:gap-x-36 gap-y-0" }/>

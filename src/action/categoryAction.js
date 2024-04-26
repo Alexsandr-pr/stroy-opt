@@ -9,7 +9,7 @@ import axios from "axios"
 class CategoryAction {
     async addCategory(title) {
         try {
-            return await axios.post(`${API_URL}/category`, {
+            return await axios.post(`${API_URL}api/category`, {
                 title
             })  
         } catch(e) {
@@ -21,7 +21,7 @@ class CategoryAction {
         return async dispatch => {
             try {
                 
-                const response = await axios.get(`${API_URL}/category/all`);
+                const response = await axios.get(`${API_URL}api/category/all`);
                 if(response.status === 200) {
                     dispatch(getAllCategory(response.data))
                 }

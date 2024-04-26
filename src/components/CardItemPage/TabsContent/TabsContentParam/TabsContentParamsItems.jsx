@@ -7,8 +7,13 @@ const TabsContentParamsItems = ({data, styles}) => {
         <ul className={`gap-24 ${ styles}`}>
             {
                 data.map((item, i) => {
+                    
+                    if(i < 5) return
+                        
+                    const {key, value} = item
+                    const title= key
                     return (
-                        <TabsContentParam key={i} {...item}/>
+                        <TabsContentParam key={key} title={title} value={value}/>
                     )
                 })
             }

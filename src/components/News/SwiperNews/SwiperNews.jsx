@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { v4 as uuidv4 } from 'uuid';
-// Import Swiper styles
-import 'swiper/css';
+
+
 import NewsCard from '../NewsCard/NewsCard';
 import ButtonSliderRight from '../../Buttons/ButtonsSlider/ButtonSliderRight';
 import ButtonSliderLeft from '../../Buttons/ButtonsSlider/ButtonSliderLeft';

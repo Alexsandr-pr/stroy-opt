@@ -7,13 +7,16 @@ import LikeIcon from "components/Icon/LikeIcon"
 import ButtonFavorites from "components/Buttons/ButtonFavorites/ButtonFavorites"
 import RaitIcon from "components/Icon/RaitIcon"
 import Counter from "components/Counter/Counter"
+import { useSelector } from "react-redux"
 
 
 const CardItemRightBlock = () => {
+
+    const {code} = useSelector(store => store.card.card)
     return (
         <div className="p-6 shadow-4sl flex flex-col gap-4">
-            <Article article={"XJ89YHGO"}/>
-            <YesOrNo/>
+            <Article article={code}/>
+            <YesOrNo />
             <BlockPrice price={"14000"}/>
             <Counter text={"Количество:"}/>
             <BigBluebutton text={"Добавить в корзину"}/>            

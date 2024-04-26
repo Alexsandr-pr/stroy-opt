@@ -1,6 +1,6 @@
 import axios from "axios"
 import { API_URL } from "../../config"
-import { getManyCards, getOneCard } from "store/cardReducer";
+import { getManyCards, getOneCard, loadingCard } from "store/cardReducer";
 
 
 class CardAction {
@@ -26,7 +26,7 @@ class CardAction {
                 formData.append("file", files[0])
             }
 
-            const response = await axios.post(`${API_URL}/card`, formData)
+            const response = await axios.post(`${API_URL}api/card`, formData)
            
             return response.data
         }  catch(e) {
@@ -37,7 +37,7 @@ class CardAction {
     getCardsOnDb() {
         return async dispatch => {
             try {
-                const response =  await axios.get(`${API_URL}/card`);
+                const response =  await axios.get(`${API_URL}api/card`);
                 if(response.status === 200) {
                     return dispatch(getManyCards(response.data))
                 }
@@ -47,11 +47,14 @@ class CardAction {
         }
     }
 
-    getOneCardOnDb(id) {
+    getOneCardOnDb(id = "662bd95b7d412ae6ed509f0a") {
         return async dispatch => {
             try {
-                const response =  await axios.get(`${API_URL}/card/${id}`);
+                dispatch(loadingCard())
+                const response =  await axios.get(`${API_URL}api/card/${id}`);
+
                 if(response.status === 200) {
+                    
                     return dispatch(getOneCard(response.data))
                 }
             } catch {
@@ -62,7 +65,7 @@ class CardAction {
 
     async deleteCard(id) {
         try {
-            const response =  await axios.delete(`${API_URL}/card/${id}`);
+            const response =  await axios.delete(`${API_URL}api/card/${id}`);
             if(response.status === 200) {
                 return alert(response.message)
             }

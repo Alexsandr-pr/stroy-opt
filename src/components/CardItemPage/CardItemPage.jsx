@@ -1,13 +1,16 @@
 import HeaderBlock from "components/HeaderBlock/HeaderBlock"
 import CardItemContent from "./CardItemContent/CardItemContent"
 import CardItemPageTabs from "./CardItemPageTabs/CardItemPageTabs"
+import { useSelector } from "react-redux"
 
 
 const CardItemPage = () => {
+
+    const {title} = useSelector(store => store.card.card)
     return (
         <>
             <div className="mb-10">
-                <HeaderBlock title={"Дрель-шуруповерт аккумуляторная MAKITA DF 347DWE14 В 1,5 А/ч"}/>
+                <HeaderBlock title={title}/>
             </div>
             <div className="mb-20">
                 <div className="mb-12">

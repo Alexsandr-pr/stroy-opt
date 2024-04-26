@@ -6,7 +6,7 @@ import { getAllTypeProduct } from "store/adminReducer";
 class TypeProductAction {
     async addTypeProduct(title, id) {
         try {
-            const response = await axios.post(`${API_URL}/typeproduct?_id=${id}`, {
+            const response = await axios.post(`${API_URL}api/typeproduct?_id=${id}`, {
                 title
             })
         }  catch(e) {
@@ -17,7 +17,7 @@ class TypeProductAction {
     getTypeProduct() {
         return async dispatch => {
             try {
-                const response = await axios.get(`${API_URL}/typeproduct/product/all`);
+                const response = await axios.get(`${API_URL}api/typeproduct/product/all`);
                 if(response.status === 200) {
                     return dispatch(getAllTypeProduct(response.data))
                 }

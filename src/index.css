@@ -1,3 +1,5 @@
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -147,4 +149,38 @@ main {
 
 input[type = 'search']::-webkit-search-cancel-button {
     -webkit-appearance: none;
+}
+
+
+#contentEditable,
+#description {
+    color: #2C333D !important;
+    font-size: 16px !important;
+}
+#contentEditable li,
+#description li {
+    position: relative;
+    padding-left: 15px;
+}
+#contentEditable li:not(:last-child),
+#description li:not(:last-child){
+    margin-bottom: 3px;
+}
+#contentEditable li::after ,
+#description li::after{
+    content:"";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    transform: translateY(-50%);
+    top: 50%;
+    border-radius:50%;
+    background: #2C333D;
+}
+
+.images {
+    max-width: 100% !important;
+    height: auto !important;
+    
 }

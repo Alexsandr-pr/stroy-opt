@@ -7,9 +7,9 @@ const DELETE_ACTIVE_FILTER = "DELETE_ACTIVE_FILTER"
 
 export const catalogReducer = (state = defaultState, action) => {
     switch(action.type) {
-        case "ADD_ACTIVE_FILTER" : 
+        case ADD_ACTIVE_FILTER : 
             return {...state, activeFilter: true};
-        case "DELETE_ACTIVE_FILTER" : 
+        case DELETE_ACTIVE_FILTER : 
             return {...state, activeFilter: false}
             default: 
                 return state

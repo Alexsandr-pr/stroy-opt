@@ -1,6 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Pagination} from "swiper"
 import ButtonSliderRight from 'components/Buttons/ButtonsSlider/ButtonSliderRight';
 import MainSliderHomeCard from '../MainSliderHomeCard/MainSliderHomeCard';
 import ButtonSliderLeft from 'components/Buttons/ButtonsSlider/ButtonSliderLeft';

@@ -8,6 +8,8 @@ import BlockListOnBorder from "components/BlockListOnBorder/BlockListOnBorder";
 import TabsContentParamsItems from "components/CardItemPage/TabsContent/TabsContentParam/TabsContentParamsItems";
 import ButtonBlueAdd from "components/Buttons/ButtonBlueAdd/ButtonBlueAdd";
 import CardItemRightBlock from "./CardItemRightBlock";
+import { useDispatch, useSelector } from "react-redux";
+import { changeParamTabs } from "store/cardReducer";
 
 
 const data = [
@@ -29,46 +31,35 @@ const data = [
     },
 ]
 
-const dataParam = [
-    {
-        "title": "Тип товара",
-        "text":"Дрель-шуруповерт"
-    },
-    {
-        "title": "Бренд",
-        "text":"MAKITA"
-    },
-    {
-        "title": "Назначение инструмента",
-        "text":"профессиональный"
-    },
-    {
-        "title": "Мощность (Вт)",
-        "text":"18"
-    },
-    {
-        "title": "Емкость АКБ (А/ч)",
-        "text":"1,5"
-    },
-    {
-        "title": "Крутящий момент макс. (Н/м)",
-        "text":"30"
-    },
-    {
-        "title": "Напряжение аккумулятора (В)",
-        "text":"14,4"
-    }
-]
 
 
 
 const CardItemRight = () => {
+    const {params} = useSelector(store => store.card.card)
+    const paramsss = JSON.parse(params[0])
+
+    const typeParam = useSelector(store => store.card.typeParam)
+    
+    
+    const dispatch = useDispatch();
+
+    const scrollTo = () => {
+        window.scrollTo({
+            top: 800,
+            behavior:"smooth"
+        })
+        if(typeParam !== "params") {
+            dispatch(changeParamTabs("params"))
+        }
+        
+    }
+
     return (
         <div className="flex gap-12">
             <div className="w-1/2">
                 <div className="mb-6">
-                    <TabsContentParamsItems data={dataParam}/>
-                    <ButtonBlueAdd text={"Больше характеристик"}/>
+                <TabsContentParamsItems data={paramsss}/>
+                    <ButtonBlueAdd cb={scrollTo} text={"Больше характеристик"}/>
                 </div>
                 <BlockListOnBorder data={data}/>
             </div>
