@@ -5,25 +5,6 @@ import { useDispatch } from 'react-redux';
 import { lazy, useEffect } from 'react';
 import cardAction from 'action/cardAction';
 import 'swiper/css';
-//import Home from 'pages/Home/Home';
-
-
-//Если всключить ленивую загрузку этого компонента перестает работать слайдер на основной странице после главного блока
-//import Company from 'pages/Company/Company';
-//import News from 'pages/News/News';
-//import Order from 'components/OrderPage/Order/Order';
-//import Payment from 'components/OrderPage/Payment/Payment';
-//import Refund from 'components/OrderPage/Refund/Refund';
-//import Question from 'components/OrderPage/Question/Question';
-//import Reviews from 'components/OrderPage/Reviews/Reviews';
-//import ContactsPage from 'components/OrderPage/ContactsPage/ContactsPage';
-//import NewsCardPage from 'components/NewsPage/NewsCardPage/NewsCardPage';
-//import PageNotFound from 'pages/PageNotFound/PageNotFound';
-//import Catalog from 'pages/Catalog/Catalog';
-//import Sales from 'pages/Sales/Sales';
-//import SalesItemOpen from 'pages/Sales/SalesItemOpen';
-//import CardPage from 'pages/CardPage/CardPage';
-//import Admin from 'pages/Admin/Admin';
 
 
 const Admin = lazy(() => import('pages/Admin/Admin'))
@@ -63,9 +44,11 @@ function App() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(cardAction.getCardsOnDb())
-        dispatch(cardAction.getOneCardOnDb())
-    }, [])
+        dispatch(cardAction.getCardsOnDb());
+        dispatch(cardAction.getOneCardOnDb());
+        dispatch(cardAction.getCardsOnCategory("660c727f8d83c7a45d8c7ab2"));
+    }, []);
+
     return (
         <>
             <Routes>

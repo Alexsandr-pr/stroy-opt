@@ -14,7 +14,7 @@ import { API_URL } from '../../../../config';
 const BlockTovatItems = memo(() => {
 
 
-    const cards = useSelector(store => store.card.cards)
+    const cards = useSelector(store => store.card.cardsCategory)
 /*
     const changeActive = (id) => {
         setPost(prev  => prev.map((item) => {

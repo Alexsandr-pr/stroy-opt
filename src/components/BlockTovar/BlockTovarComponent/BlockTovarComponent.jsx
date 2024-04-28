@@ -1,38 +1,50 @@
 import ButtonItems from 'components/Buttons/ButtonsItems/ButtonItems';
 import HeaderBlock from 'components/HeaderBlock/HeaderBlock'
-import React, { memo } from 'react'
-import { v4 as uuidv4 } from 'uuid';
+import React, { memo, useState } from 'react'
+
 import BlockTovatItems from '../BlockTovarItems/BlockTovatItems';
+import { useDispatch } from 'react-redux';
+import cardAction from 'action/cardAction';
+
 
 const data = [
     {
-        "id": uuidv4(),
+        "id": "",
         "title":"Все товары",
         "active":true,
     },
     {
-        "id": uuidv4(),
+        "id": "660c727f8d83c7a45d8c7ab2",
         "title":"Инструменты",
         "active":false,
     },
     {
-        "id": uuidv4(),
+        "id": "660c726e8d83c7a45d8c7aa8",
         "title":"Сантехника",
         "active":false,
     },
     {
-        "id": uuidv4(),
+        "id": "660c727c8d83c7a45d8c7ab0",
         "title":"Для дома",
         "active":false,
     },
     {
-        "id": uuidv4(),
+        "id": "660c72668d83c7a45d8c7aa2",
         "title":"Для сада",
         "active":false,
     },
 ]
 
 const BlockTovarComponent = memo(({title, category}) => {
+    const [idActive, setState] = useState("")
+
+    const dispatch = useDispatch()
+    const changeArray = (id) => {
+        setState(id)
+        dispatch(cardAction.getCardsOnCategory(id));
+        
+    }
+
     return (
         <div className='max-w-[1654px] mx-auto px-4 md:mb-16 lg:mb-24'>
             <div className="mb-4 md:mb-8">
@@ -40,7 +52,7 @@ const BlockTovarComponent = memo(({title, category}) => {
             </div>
             {
                 category &&     <div className=" mb-6 md:mb-12">
-                                    <ButtonItems data={data}/>
+                                    <ButtonItems idActive={idActive} changeArray={changeArray} data={data}/>
                                 </div>
             }
            

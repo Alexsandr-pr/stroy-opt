@@ -1,20 +1,23 @@
 
 
 
-const Counter = ({text}) => {
+const Counter = ({text, onChangeCurrent, current}) => {
+
+    
+
     return (
         <div className="flex items-center gap-2 justify-between">
             {text}
-            <CounterButton text={"-"}/>
-            <span className="text-main-title text-lg ">1</span>
-            <CounterButton text={"+"}/>
+            <CounterButton disabled={current === 1 } cb={() => onChangeCurrent(-1)} text={"-"}/>
+            <span className="text-main-title text-lg ">{current}</span>
+            <CounterButton cb={() => onChangeCurrent(1)} text={"+"}/>
         </div>
     )
 }
 
-const CounterButton = ({text}) => {
+const CounterButton = ({text, cb, disabled}) => {
     return (
-        <button className="bg-[#F3F4F5] text-lg text-[#4A5056] rounded-full w-[61px] h-[43px]">
+        <button disabled={disabled} onClick={() => cb()} className="bg-[#F3F4F5] text-lg text-[#4A5056] rounded-full w-[61px] h-[43px]">
             {text}
         </button>
     )

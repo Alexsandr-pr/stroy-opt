@@ -1,6 +1,6 @@
 import axios from "axios"
-import { API_URL } from "../../config"
-import { getManyCards, getOneCard, loadingCard } from "store/cardReducer";
+import { API_URL, LIMIT_CATEGORY } from "../../config"
+import { getCardsCategory, getManyCards, getOneCard, loadingCard } from "store/cardReducer";
 
 
 class CardAction {
@@ -37,7 +37,7 @@ class CardAction {
     getCardsOnDb() {
         return async dispatch => {
             try {
-                const response =  await axios.get(`${API_URL}api/card`);
+                const response =  await axios.get(`${API_URL}api/card/cards`);
                 if(response.status === 200) {
                     return dispatch(getManyCards(response.data))
                 }
@@ -51,8 +51,7 @@ class CardAction {
         return async dispatch => {
             try {
                 dispatch(loadingCard())
-                const response =  await axios.get(`${API_URL}api/card/${id}`);
-
+                const response =  await axios.get(`${API_URL}api/card/one/${id}`);
                 if(response.status === 200) {
                     
                     return dispatch(getOneCard(response.data))
@@ -62,6 +61,19 @@ class CardAction {
             }
         }
     }
+
+    getCardsOnCategory(id) {
+        return async dispatch => {  
+                const response =  await axios.get(`${API_URL}api/card/category/hits/?limit=${LIMIT_CATEGORY}&id=${id}`);
+
+                if(response.status === 200) {
+                    
+                    return dispatch(getCardsCategory(response.data))
+                }
+            
+        }
+    }
+
 
     async deleteCard(id) {
         try {

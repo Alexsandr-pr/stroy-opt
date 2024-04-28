@@ -3,7 +3,7 @@ import ButtonCategory from '../ButtonCategory/ButtonCategory'
 
 import 'swiper/css';
 
-const ButtonItems = ({data}) => {
+const ButtonItems = ({data, changeArray, idActive}) => {
     return (
         <Swiper
             spaceBetween={10}
@@ -18,11 +18,12 @@ const ButtonItems = ({data}) => {
                     const {id} = item
                     return (
                         <SwiperSlide key={id} className='max-w-fit'> 
-                            <ButtonCategory  {...item}/>
+                            <ButtonCategory active={idActive === id} cb={() => changeArray(id)} {...item}/>
                         </SwiperSlide>
                     )
                 })
             }
+            
         </Swiper>
         
     )
