@@ -42,9 +42,8 @@ const Home = lazy(() => import('pages/Home/Home'))
 function App() {
 
     const dispatch = useDispatch()
-
+    
     useEffect(() => {
-        dispatch(cardAction.getCardsOnDb());
         dispatch(cardAction.getOneCardOnDb());
         dispatch(cardAction.getCardsOnCategory("660c727f8d83c7a45d8c7ab2"));
     }, []);

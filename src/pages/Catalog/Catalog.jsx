@@ -1,15 +1,24 @@
+import cardAction from "action/cardAction"
 import TitleMain from "components/BlockText/TitleMain/TitleMain"
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs"
 import CatalogLeft from "components/Catalog/CatalogLeft/CatalogLeft"
 import CatalogRight from "components/Catalog/CatalogRight/CatalogRight"
 import BurgerIcon from "components/Icon/BurgerIcon"
-import { useSelector } from "react-redux"
+import { useEffect } from "react"
+
+import {  useDispatch, useSelector } from "react-redux"
 
 
 const Catalog = () => {
 
     const activeFilter = useSelector(state => state.catalog.activeFilter);
+    const {page, counterPerPage} = useSelector(store => store.catalog)
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(cardAction.getCardsOnDb(counterPerPage, page));
+    }, [counterPerPage, page])
+    
     return (
         <div className="max-w-[1654px] mx-auto px-4">
             <Breadcrumbs page={"Электроинструмент"}/>

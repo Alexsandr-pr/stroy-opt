@@ -11,27 +11,24 @@ const data = [
     {
         "id": "",
         "title":"Все товары",
-        "active":true,
     },
     {
         "id": "660c727f8d83c7a45d8c7ab2",
         "title":"Инструменты",
-        "active":false,
+        
     },
     {
         "id": "660c726e8d83c7a45d8c7aa8",
         "title":"Сантехника",
-        "active":false,
+        
     },
     {
         "id": "660c727c8d83c7a45d8c7ab0",
         "title":"Для дома",
-        "active":false,
     },
     {
         "id": "660c72668d83c7a45d8c7aa2",
         "title":"Для сада",
-        "active":false,
     },
 ]
 
@@ -42,7 +39,6 @@ const BlockTovarComponent = memo(({title, category}) => {
     const changeArray = (id) => {
         setState(id)
         dispatch(cardAction.getCardsOnCategory(id));
-        
     }
 
     return (

@@ -5,14 +5,13 @@ import 'swiper/css';
 import BlockTovarItem from '../BlockTovarItem/BlockTovarItem';
 
 
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { API_URL } from '../../../../config';
 
 
 
 const BlockTovatItems = memo(() => {
-
 
     const cards = useSelector(store => store.card.cardsCategory)
 /*
@@ -55,8 +54,7 @@ const BlockTovatItems = memo(() => {
                             _id,
 
                         } = item
-                       
-                        const imagePath = `${API_URL}/` + images[i]
+                        const imagePath = `${API_URL}/` + images[2]
                         return (
                             <SwiperSlide key={i} className='max-w-[230px] sm:max-w-fit'>
                                 <BlockTovarItem 

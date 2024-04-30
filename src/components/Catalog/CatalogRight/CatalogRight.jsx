@@ -4,24 +4,16 @@ import { useState } from "react";
 import BlockTovarItem from "components/BlockTovar/BlockTovarItem/BlockTovarItem";
 import ButtonCategory from "components/Buttons/ButtonCategory/ButtonCategory";
 
-
-import image1 from "./img/1.webp";
-import image2 from "./img/2.webp";
-import image3 from "./img/3.webp";
-import image4 from "./img/4.webp";
-import image5 from "./img/5.webp";
-import image6 from "./img/6.webp";
-import image7 from "./img/7.webp";
-import image8 from "./img/8.webp";
-import image9 from "./img/9.webp";
 import ParentButtonRight from "./ParentButtonRight/ParentButtonRight";
 import ShowToPage from "./ShowToPage/ShowToPage";
 
 import SpollerSortFixed from "components/Spollers/SpollersSort/SpollerSortFixed";
 import BurgerIcon from "components/Icon/BurgerIcon";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addActiveFilter } from "../../../store/CatalogReducer";
 import CatalogInfoText from "./CatalogInfoText/CatalogInfoText";
+import { API_URL } from "../../../../config";
+import catalogAction from "action/catalogAction";
 
 const categoryFilter = [
     {
@@ -47,159 +39,13 @@ const categoryFilter = [
 
 ]
 
-const data = [
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image1,
-        "active":true,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image2,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image3,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image4,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image5,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image6,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image7,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image8,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image9,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image1,
-        "active":true,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image2,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image3,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image4,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image5,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image6,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image7,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image8,
-        "active":false,
-        "id":uuidv4()
-    },
-    {
-        "article":"XJ89YHGO",
-        "title":"Перфоратор универсальный Wander X645-46 GF 1450W",
-        "price": "12789",
-        "imgSrc":image9,
-        "active":false,
-        "id":uuidv4()
-    }
-]
-
-
 const CatalogRight = () => {
     const dispatch = useDispatch()
     
-    const [post, setPost] = useState(data)
+    const cards = useSelector(store => store.card.cards)
+    const { cardsLenght, counterPerPage, page , loadingCatalog} = useSelector(store => store.catalog)
 
+/*
     const changeActive = (id) => {
         setPost(prev  => prev.map((item) => {
             if(item.id === id) {
@@ -208,9 +54,13 @@ const CatalogRight = () => {
             return item
         }))
     }
-
+*/
     const addActiveFilters = () => {
         dispatch(addActiveFilter())
+    }
+
+    const onChangePage = (number) => {
+        dispatch(catalogAction.changePage(number))
     }
 
 
@@ -249,20 +99,21 @@ const CatalogRight = () => {
                 }
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3  2xl:grid-cols-4 gap-4 mb-10 sm:mb-12 lg:mb-24">
-                {
-                    post.map((item) => {
-                            const { id} = item
+                {   loadingCatalog ? "Loading ...." :
+                    cards.map((item) => {
+                            const { _id, images} = item
+                            const imagePath = `${API_URL}` + images[0]
                             return (
                                     <BlockTovarItem 
-                                        key={id}
-                                        {...item} changeActive={changeActive}/>
+                                        key={_id}
+                                        {...item} imgSrc={imagePath}/>
                                 
                             )
                         })
                 }
             </div>
             <div className="flex justify-center mb-12 lg:mb-20">
-                <Pagination/>
+                <Pagination onChangePage={onChangePage} activePage={page} postsLenght={cardsLenght} countriesPerPage={counterPerPage}/>
             </div>
             <CatalogInfoText/>
         </div>

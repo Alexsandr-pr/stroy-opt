@@ -1,7 +1,7 @@
 import axios from "axios"
 import { API_URL, LIMIT_CATEGORY } from "../../config"
 import { getCardsCategory, getManyCards, getOneCard, loadingCard } from "store/cardReducer";
-
+import {getCardsLenght, loadingCatalog} from "store/CatalogReducer"
 
 class CardAction {
     async addCard( title, files, sale, brandId, price, categoryId, typeToolId, typeProductId, params, description,current) {
@@ -34,12 +34,13 @@ class CardAction {
         }
     }
 
-    getCardsOnDb() {
+    getCardsOnDb(limit, page) {
         return async dispatch => {
             try {
-                const response =  await axios.get(`${API_URL}api/card/cards`);
+                dispatch(loadingCatalog())
+                const response =  await axios.get(`${API_URL}api/card/cards?limit=${limit}&page=${page}`);
                 if(response.status === 200) {
-                    return dispatch(getManyCards(response.data))
+                    return dispatch(getManyCards(response.data.cards)), dispatch(getCardsLenght(response.data.cardsLenght))
                 }
             } catch {
                 return alert("Ошибка при загрузке товаров")

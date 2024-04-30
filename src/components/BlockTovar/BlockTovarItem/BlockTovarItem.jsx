@@ -26,7 +26,7 @@ const BlockTovarItem = memo(function(props) {
         imgSrc,
         price,
         active, 
-        id,
+        _id,
         changeActive,
         button,
         code, 
@@ -48,7 +48,7 @@ const BlockTovarItem = memo(function(props) {
 
     return (
         <Link  to="card" className='flex flex-col gap-2.5 group   duration-300 transition-all rounded-lg'>
-            <div onClick={() => onOpenCard(id)} className="p-4 relative flex justify-center items-center">
+            <div onClick={() => onOpenCard(_id)} className="p-4 relative flex justify-center items-center">
                 <img className='max-w-full' src={imgSrc} alt={title} />
                 <div className="absolute left-0 top-0">
                     <LabelBlock styles={type.orange} text={"хит"} />
@@ -58,7 +58,7 @@ const BlockTovarItem = memo(function(props) {
             <h3 className='text-black  text-ellipsis text-sm sm:text-lg   font-medium leading-normal'>{title}</h3>
             <BlockPrice sale={sale} price={price} />
             <div className='flex justify-between gap-2.5'>
-                <ButtonCard active={active} id={id} changeActive={changeActive}/>
+                <ButtonCard active={active} id={_id} changeActive={changeActive}/>
                 {button}
                 <div className="flex gap-2.5  md:pr-5">
                     <LikeIcon/>

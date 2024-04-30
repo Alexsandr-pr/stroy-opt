@@ -2,8 +2,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import ButtonCategory from '../ButtonCategory/ButtonCategory'
 
 import 'swiper/css';
+import { useEffect } from 'react';
 
 const ButtonItems = ({data, changeArray, idActive}) => {
+
+
+    useEffect(() => {
+        console.log(idActive)
+    }, [idActive])
+
     return (
         <Swiper
             spaceBetween={10}
@@ -16,6 +23,7 @@ const ButtonItems = ({data, changeArray, idActive}) => {
             {
                 data.map((item) => {
                     const {id} = item
+                    
                     return (
                         <SwiperSlide key={id} className='max-w-fit'> 
                             <ButtonCategory active={idActive === id} cb={() => changeArray(id)} {...item}/>

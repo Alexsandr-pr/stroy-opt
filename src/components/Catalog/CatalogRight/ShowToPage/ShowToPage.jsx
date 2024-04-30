@@ -1,32 +1,35 @@
 import ButtonCategory from "components/Buttons/ButtonCategory/ButtonCategory"
-
+import { useDispatch, useSelector } from "react-redux"
+import CatalogAction from "action/catalogAction"
 
 const data = [
     {
         "title": 9,
-        "active": true
     },
     {
         "title": 12,
-        "active": false
     },
     {
         "title": 18,
-        "active": false
     },
     {
         "title": 24,
-        "active": false
     },
 ]
 
 const ShowToPage = () => {
+    const counterPerPage = useSelector(store => store.catalog.counterPerPage);
+    const dispatch = useDispatch()
+    const onChangeCounter = (number) => {
+        dispatch(CatalogAction.changeCountPerPage(number))
+    }
     return (
         <ul className="flex gap-2.5">
             {
-                data.map((item, i) => {
+                data.map(({title}) => {
+                    
                     return (
-                        <ButtonCategory  key={i} {...item}/>
+                        <ButtonCategory cb={() => onChangeCounter(title)} active={title === counterPerPage} key={title} title={title}/>
                     )
                 })
             }
