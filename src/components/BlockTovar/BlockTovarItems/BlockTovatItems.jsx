@@ -14,16 +14,7 @@ import { API_URL } from '../../../../config';
 const BlockTovatItems = memo(() => {
 
     const cards = useSelector(store => store.card.cardsCategory)
-/*
-    const changeActive = (id) => {
-        setPost(prev  => prev.map((item) => {
-            if(item.id === id) {
-                return {...item, active: true}
-            }
-            return item
-        }))
-    }
-*/
+
     return (
         <Swiper
             loop={true}
@@ -46,18 +37,18 @@ const BlockTovatItems = memo(() => {
                 }
             }}
         >
-
+        
             {
                 cards.map((item,i) => {
                         const {
                             images,
                             _id,
-
                         } = item
                         const imagePath = `${API_URL}/` + images[2]
                         return (
                             <SwiperSlide key={i} className='max-w-[230px] sm:max-w-fit'>
                                 <BlockTovarItem 
+                                    
                                     imgSrc={imagePath}
                                     id={_id}
                                     {...item} 

@@ -1,10 +1,11 @@
 
 import { Route, Routes } from 'react-router-dom';
 import Layout from 'pages/Layout/Layout';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { lazy, useEffect } from 'react';
 import cardAction from 'action/cardAction';
 import 'swiper/css';
+import basketAction from 'action/basketAction';
 
 
 const Admin = lazy(() => import('pages/Admin/Admin'))
@@ -43,15 +44,26 @@ function App() {
 
     const dispatch = useDispatch()
     
+    const basket = useSelector(store => store.basket.basket)
     useEffect(() => {
         dispatch(cardAction.getOneCardOnDb());
         dispatch(cardAction.getCardsOnCategory("660c727f8d83c7a45d8c7ab2"));
     }, []);
 
+    const initialDataCart = JSON.parse(localStorage.getItem("basket")) || [];
+
+    useEffect(() => {
+        dispatch(basketAction.onInitBasket(initialDataCart))
+    }, [])
+
+
+    useEffect(() => {
+        localStorage.setItem("basket", JSON.stringify(basket));
+    },[basket])
     return (
         <>
             <Routes>
-                <Route path="/" element={ <Layout />}>
+                <Route  path="/" element={ <Layout />}>
                     <Route index element={<Home/>}/>
                     <Route path="company" element={<Company/>}/>
                     <Route path="news" element={<News/>}/>
@@ -65,7 +77,7 @@ function App() {
                     <Route path="contact" element={<ContactsPage/>}/>
 
                     <Route path="catalog" element={<Catalog/>}/>
-                    <Route path="card/*" element={<CardPage/>}/>
+                    <Route path="card" element={<CardPage/>}/>
                     <Route path="sales" element={<Sales/>}/>
                     <Route path="sales/sales_open" element={<SalesItemOpen/>}/>
 

@@ -4,13 +4,10 @@ import CatalogAction from "action/catalogAction"
 
 const data = [
     {
-        "title": 9,
+        "title": 8,
     },
     {
-        "title": 12,
-    },
-    {
-        "title": 18,
+        "title": 16,
     },
     {
         "title": 24,

@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ButtonCategory from '../ButtonCategory/ButtonCategory'
 
 import 'swiper/css';
+import ButtonCategoryClear from '../ButtonCategory/ButtonCategoryClear';
 
-const ButtonItems = ({data, changeArray, idActive}) => {
+const ButtonItemsClear = ({data, idActive}) => {
     
     return (
         <Swiper
@@ -20,7 +20,7 @@ const ButtonItems = ({data, changeArray, idActive}) => {
                     
                     return (
                         <SwiperSlide key={id} className='max-w-fit'> 
-                            <ButtonCategory active={idActive === id} cb={() => changeArray(id)} {...item}/>
+                            <ButtonCategoryClear active={idActive === id}  {...item}/>
                         </SwiperSlide>
                     )
                 })
@@ -31,4 +31,4 @@ const ButtonItems = ({data, changeArray, idActive}) => {
     )
 }
 
-export default ButtonItems
+export default ButtonItemsClear

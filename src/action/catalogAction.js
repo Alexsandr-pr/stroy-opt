@@ -1,4 +1,4 @@
-import { changeCounterPerPage, pageNumber } from "store/CatalogReducer"
+import { changeCounterPerPage, onPageNumberMinus, onPageNumberPlus, pageNumber } from "store/CatalogReducer"
 
 class CatalogAction {
 
@@ -11,11 +11,31 @@ class CatalogAction {
             }
         }
     }
-    
+
     changePage(number) {
         return async dispatch => {
             try {
                 return dispatch(pageNumber(number))
+            }catch(e){
+                console.log(e)
+            }
+        }
+    }
+
+    onNextPage() {
+        return async dispatch => {
+            try {
+                return dispatch(onPageNumberPlus())
+            }catch(e){
+                console.log(e)
+            }
+        }
+    }
+    
+    onPrevPage() {
+        return async dispatch => {
+            try {
+                return dispatch(onPageNumberMinus())
             }catch(e){
                 console.log(e)
             }
