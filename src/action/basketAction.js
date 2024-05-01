@@ -5,7 +5,6 @@ class BasketAction {
 
     addCardBasket(id, quantity) {
         return async dispatch => {
-           
             try {
                 return dispatch(addCardToBasket({id, quantity}))
             }catch(e) {

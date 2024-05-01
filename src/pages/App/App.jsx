@@ -36,8 +36,7 @@ const Payment = lazy(() => import('components/OrderPage/Payment/Payment'))
 const Order = lazy(() => import('components/OrderPage/Order/Order'))
 const News = lazy(() => import('pages/News/News'))
 const Company = lazy(() => import('pages/Company/Company'))
-
-
+const Basket = lazy(() => import('components/Basket/Basket'))
 const Home = lazy(() => import('pages/Home/Home'))
 
 function App() {
@@ -80,11 +79,10 @@ function App() {
                     <Route path="card" element={<CardPage/>}/>
                     <Route path="sales" element={<Sales/>}/>
                     <Route path="sales/sales_open" element={<SalesItemOpen/>}/>
-
-                    <Route path="*" element={<PageNotFound/>}/>
-
-
                     <Route path="admin" element={<Admin/>}/>
+                    <Route path="basket" element={<Basket/>}/>
+                    <Route path="*" element={<PageNotFound/>}/>
+                    
                 </Route>
             </Routes>
         </>

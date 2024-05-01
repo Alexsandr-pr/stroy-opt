@@ -51,7 +51,7 @@ const BlockTovarComponent = memo(({title, category}) => {
                                     <ButtonItems idActive={idActive} changeArray={changeArray} data={data}/>
                                 </div>
             }
-           
+            
             <BlockTovatItems/>
         </div>
     )

@@ -7,28 +7,30 @@ import LikeIcon from "components/Icon/LikeIcon"
 import ButtonFavorites from "components/Buttons/ButtonFavorites/ButtonFavorites"
 import RaitIcon from "components/Icon/RaitIcon"
 import Counter from "components/Counter/Counter"
-import { useSelector } from "react-redux"
-import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect, useState } from "react"
+import basketAction from "action/basketAction"
 
 
 const CardItemRightBlock = () => {
     const [current, setCurrent] = useState(1);
 
     const onChangeCurrent = (i) => {
-
-            setCurrent(prev => prev + i)
-        
+        setCurrent(prev => prev + i)
     }
-
-    const {code, price, sale} = useSelector(store => store.card.card);
+    const dispatch = useDispatch()
+    
+    
+    const basket = useSelector(store => store.basket.basket)
+    const {code, price, sale, _id} = useSelector(store => store.card.card);
     return (
         <div className="p-6 shadow-4sl flex flex-col gap-4">
             <Article article={code}/>
             <YesOrNo />
             <BlockPrice price={price} sale={sale}/>
-            <Counter onChangeCurrent={onChangeCurrent}  current={current} text={"Количество:"}/>
-            <BigBluebutton text={"Добавить в корзину"}/>            
-            <ButtonCategory title={"Купить в 1 клик"} active={true}/>
+            <Counter  onChangeCurrent={onChangeCurrent}  current={current} text={"Количество:"}/>
+            <BigBluebutton active={basket.some(item => item.id === _id)} cb={() => dispatch(basketAction.addCardBasket(_id, current))} text={ basket.some(item => item.id === _id) ? "Уже добавлено" : "Добавить в корзину"}/>            
+            <ButtonCategory title={"Купить в 1 клик"} />
             <div className="flex gap-6 justify-between">
                 <ButtonFavorites text={"В избранное"}>
                     <LikeIcon/>

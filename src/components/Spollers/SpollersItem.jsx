@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
+import {useAutoAnimate} from "@formkit/auto-animate/react"
 
 const SpollersItem = ({title, text}) => {
 
 
-    const [active,setActive] = useState(false)
+    const [active,setActive] = useState(false);
+        
+    const [block] = useAutoAnimate();
 
     return (
-        <div className="">
+        <div ref={block} className="">
             <button onClick={() => setActive(prev => !prev)}  className='p-2.5 gap-5 w-full justify-between text-left items-center flex text-main-title font-medium text-base  md:text-lg border-b border-spoller-border'>
                 <span>{title}</span>
                 <span className='max-w-10 max-h-10 min-w-10 min-h-10 rounded-full flex items-center justify-center text-lg bg-[#EBF7FF] text-blue text-lg'>
@@ -21,9 +24,10 @@ const SpollersItem = ({title, text}) => {
                             }
                 </span>
             </button>
-            <div className={`p-5  text-[#64676A] text-base font-normal leading-relaxed ${active ? " block": " hidden"}`}>
+            {active ? 
+            <div className={`p-5 text-[#64676A] text-base font-normal leading-relaxed `}>
                 {text}
-            </div>
+            </div> : null }
         </div>
     )
 }

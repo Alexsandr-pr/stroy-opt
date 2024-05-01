@@ -27,7 +27,7 @@ const SpollerSortRelative = ({data, text}) => {
                             if(i  > number) return
                             return (
                                 <li key={i}>
-                                    <LabelCheckbox text={item.text}/>
+                                    <LabelCheckbox type={"checkbox"} text={item.text}/>
                                 </li>
                             )
                         })
