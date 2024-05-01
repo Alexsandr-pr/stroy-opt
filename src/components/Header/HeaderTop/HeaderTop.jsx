@@ -54,8 +54,8 @@ const HeaderTop = () => {
                     {
                         data.map(({to, title}) => {
                             return (
-                                <li key={to} className="">
-                                    <NavLink to={to} className="lg:text-nav-link header-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
+                                <li key={to} className="group">
+                                    <NavLink to={to} className="lg:text-nav-link group-hover:text-blue duration-300 transition-all header-link text-navlink-mobile text-sm font-medium lg:font-normal leading-normal whitespace-nowrap">
                                         {title}
                                     </NavLink>
                                 </li>
@@ -67,7 +67,7 @@ const HeaderTop = () => {
             </nav>
             <div className="flex items-center gap-2.5">
                 <p className='text-time font-normal leading-normal text-[13px] whitespace-nowrap hidden md:block'>Ежедневно, с 8:00 до 18:00</p>
-                <a className='text-black font-medium text-base whitespace-nowrap leading-normal' href="tel:04534534532">0983453432</a>
+                <a className='text-black font-medium text-base whitespace-nowrap hover:text-blue duration-300 transition-all leading-normal' href="tel:04534534532">0983453432</a>
                 <ButtonBlue text={"Заказать звонок"} />
             </div>
         </div>

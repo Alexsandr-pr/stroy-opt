@@ -24,7 +24,7 @@ const Pagination = ({cbPrev, cbNext, postsLenght, countriesPerPage, activePage, 
                 {
                     pageSubset.map(item => {
                         return (
-                            <PaginationItem onChangePage={onChangePage} key={item} active={item === activePage} i={item}/>
+                            <PaginationItem onChangePage={item !== activePage && onChangePage} key={item} active={item === activePage} i={item}/>
                         )
                     })
                 }
