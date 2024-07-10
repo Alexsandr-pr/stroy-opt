@@ -3,7 +3,7 @@ import InputBlock from "../Input"
 import Parent from "../Parent"
 
 
-const InputEmail = () => {
+const InputEmail = ({setValue, value}) => {
 
     return (
         <Parent 
@@ -11,10 +11,12 @@ const InputEmail = () => {
             label={"Email *:"}
         >
             <InputBlock 
+                value={value}
+                setValue={setValue}
                 id={"inputEmail"}
                 type={"email"} 
                 name={"email"} 
-                placeholder={"Введите ваш электронный адрес"}
+                placeholder={"Введите ваш email"}
             />
         </Parent>
     )

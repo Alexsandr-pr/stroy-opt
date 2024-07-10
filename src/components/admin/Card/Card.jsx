@@ -59,7 +59,6 @@ const Card = () => {
         e.preventDefault();
         const files = [...e.target.files];
         setFiles(files);
-        
     }
 
     const [count, setCount] = useState(1);
@@ -88,8 +87,7 @@ const Card = () => {
     const addCategoryFunction = async (e) => {
         e.preventDefault();
         if(categoryId !== "" && typeToolId !== "" && typeProductId !== "" && brandId !== ""  ) {
-            await cardAction.addCard(title, files, sale, brandId, price, categoryId, typeToolId, typeProductId, formData, description);
-            
+            await cardAction.addCard(title, files, sale, brandId, price, categoryId, typeToolId, typeProductId, formData, description);  
         }
     }
 
@@ -101,7 +99,6 @@ const Card = () => {
         dispatch(TypeProductAction.getTypeProduct());
         dispatch(TypeToolAction.getTypeTool());
         dispatch(BrandAction.getBrand());
-
     }, []);
 
     const brand = useSelector(store => store.admin.brand)
@@ -161,7 +158,6 @@ const Card = () => {
             <HeaderBlockTitle  title={"Добавьте название товара  "}/>
                 <InputBlock setValue={onSetTitle} value={title} placeholder={"Card title"} name={"title"} type={"text"}/>
 
-
                 <HeaderBlockTitle  title={"Добавьте описание "}/>
                 <div  
                     id="contentEditable"
@@ -177,7 +173,6 @@ const Card = () => {
                     <BigBluebutton type={"button"} text={"h3"} cb={e => wrapSelectionWithTagStrong("h3")}/>
                     <BigBluebutton type={"button"} text={"strong"} cb={e => wrapSelectionWithTagStrong("strong")}/>
                 </div>
-              
                 <HeaderBlockTitle  title={" Укажите бренд "}/>
                 <ul className={`flex-col mb-4 gap-4 flex`}>
                         {
@@ -190,7 +185,6 @@ const Card = () => {
                             })
                         }
                 </ul>
-
                 <HeaderBlockTitle  title={"Укажите количество едениц товара добавляемого на склад "}/>
                 <InputBlock setValue={onSetCurrent} value={current} placeholder={"Card current"} name={"current"} type={"number"}/>
                 <HeaderBlockTitle  title={"Укажите цену "}/>

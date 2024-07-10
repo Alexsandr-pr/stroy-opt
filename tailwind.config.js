@@ -65,7 +65,13 @@ export default {
       "spoller-border":"#EDF0F2",
       "date":"#60656C",
       "map-border":"#E9ECEF",
-      "modals": "rgba(1, 17, 32, 0.9)"
+      "modals": "rgba(1, 17, 32, 0.9)",
+      "status": {
+        orange: "rgba(251, 90, 0, 1)",
+        green: "rgba(17, 163, 66, 1)",
+        red: "rgba(248, 29, 42, 1)",
+      }
+
     },
   },
   plugins: [],

@@ -21,7 +21,7 @@ const BlockTovarItem = memo(function(props) {
 
     const dispatch = useDispatch()
     const basket = useSelector(store => store.basket.basket)
-
+    
     const {
         title, 
         imgSrc, 
