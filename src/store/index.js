@@ -5,6 +5,7 @@ import { cardReducer } from "./cardReducer";
 import { thunk } from "redux-thunk";
 import { adminReducer } from "./adminReducer";
 import {basketReducer }from "./basketReducer"
+import { orderReducer } from "./orderReducer";
 
 
 
@@ -12,8 +13,8 @@ const rootReducer = combineReducers({
     catalog: catalogReducer,
     card: cardReducer,
     admin: adminReducer,
-    basket: basketReducer
-
+    basket: basketReducer,
+    userOrder: orderReducer
 })
 
 

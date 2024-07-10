@@ -6,6 +6,14 @@ import { lazy, useEffect } from 'react';
 import cardAction from 'action/cardAction';
 import 'swiper/css';
 import basketAction from 'action/basketAction';
+import MyProfile from 'pages/Cabinet/blocks/MyProfile';
+import ChangeProfile from 'pages/Cabinet/blocks/ChangeProfile';
+import MyOrder from 'pages/Cabinet/blocks/order/MyOrder';
+import MyAdress from 'pages/Cabinet/blocks/adress/MyAdress';
+import MyLikes from 'pages/Cabinet/blocks/MyLikes';
+import ChangePassword from 'pages/Cabinet/blocks/ChangePassword';
+import Logout from 'pages/Cabinet/blocks/Logout';
+import OrderDetails from 'pages/Cabinet/blocks/order/MyOrderDetails';
 
 
 const Admin = lazy(() => import('pages/Admin/Admin'))
@@ -38,6 +46,8 @@ const News = lazy(() => import('pages/News/News'))
 const Company = lazy(() => import('pages/Company/Company'))
 const Basket = lazy(() => import('components/Basket/Basket'))
 const Home = lazy(() => import('pages/Home/Home'))
+const Cabinet = lazy(() => import("pages/Cabinet/Cabinet"))
+
 
 function App() {
 
@@ -63,6 +73,7 @@ function App() {
         <>
             <Routes>
                 <Route  path="/" element={ <Layout />}>
+                    
                     <Route index element={<Home/>}/>
                     <Route path="company" element={<Company/>}/>
                     <Route path="news" element={<News/>}/>
@@ -79,10 +90,20 @@ function App() {
                     <Route path="card" element={<CardPage/>}/>
                     <Route path="sales" element={<Sales/>}/>
                     <Route path="sales/sales_open" element={<SalesItemOpen/>}/>
+                    <Route path="user/*" element={<Cabinet/>}>
+                        <Route path="account" element={<MyProfile/>}/>
+                        <Route path="profile" element={<ChangeProfile/>}/>
+                        <Route path="order" element={<MyOrder/>}/>
+                        <Route path="order/:id" element={<OrderDetails/>}/>
+                        <Route path="adress" element={<MyAdress/>}/>
+                        <Route path="likes" element={<MyLikes/>}/>
+                        <Route path="password" element={<ChangePassword/>}/>
+                        <Route path="logout" element={<Logout/>}/>
+                    </Route>
                     <Route path="admin" element={<Admin/>}/>
                     <Route path="basket" element={<Basket/>}/>
                     <Route path="*" element={<PageNotFound/>}/>
-                    
+
                 </Route>
             </Routes>
         </>
