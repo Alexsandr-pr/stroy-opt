@@ -11,7 +11,7 @@ const InputBlock = ({
     
     return (
         <input 
-                onChange={(e) => setValue(e)}
+                onChange={(e) => setValue(e.target.value)}
                 value={value}
                 required={true}
                 type={type} 

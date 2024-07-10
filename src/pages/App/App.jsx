@@ -14,6 +14,7 @@ import MyLikes from 'pages/Cabinet/blocks/MyLikes';
 import ChangePassword from 'pages/Cabinet/blocks/ChangePassword';
 import Logout from 'pages/Cabinet/blocks/Logout';
 import OrderDetails from 'pages/Cabinet/blocks/order/MyOrderDetails';
+import AdressEdit from 'pages/Cabinet/blocks/adress/AdressEdit';
 
 
 const Admin = lazy(() => import('pages/Admin/Admin'))
@@ -95,7 +96,8 @@ function App() {
                         <Route path="profile" element={<ChangeProfile/>}/>
                         <Route path="order" element={<MyOrder/>}/>
                         <Route path="order/:id" element={<OrderDetails/>}/>
-                        <Route path="adress" element={<MyAdress/>}/>
+                        <Route path="adress/*" element={<MyAdress/>}/>
+                        <Route path="adress/edit" element={<AdressEdit/>}/>
                         <Route path="likes" element={<MyLikes/>}/>
                         <Route path="password" element={<ChangePassword/>}/>
                         <Route path="logout" element={<Logout/>}/>

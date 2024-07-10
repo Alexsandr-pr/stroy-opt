@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdressBlock = ({customer}) => {
+const AdressBlock = ({customer, children}) => {
     return (
         <div className="rounded-lg  border  border-[#EDF0F2]">
             <div className="flex justify-between">
@@ -25,6 +25,7 @@ const AdressBlock = ({customer}) => {
                     <p className='text-[#3B3B3E] text-[15px] font-medium'>{customer?.email}</p>
                 </div>
             </div>
+            {children}
         </div>
     )
 }
