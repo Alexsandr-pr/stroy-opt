@@ -15,6 +15,7 @@ import ChangePassword from 'pages/Cabinet/blocks/ChangePassword';
 import Logout from 'pages/Cabinet/blocks/Logout';
 import OrderDetails from 'pages/Cabinet/blocks/order/MyOrderDetails';
 import AdressEdit from 'pages/Cabinet/blocks/adress/AdressEdit';
+import Signin from 'pages/Auth/blocks/Signin';
 
 
 const Admin = lazy(() => import('pages/Admin/Admin'))
@@ -87,10 +88,14 @@ function App() {
                     <Route path="reviews" element={<Reviews/>}/>
                     <Route path="contact" element={<ContactsPage/>}/>
 
-                    <Route path="catalog" element={<Catalog/>}/>
+                    
+                    <Route path="catalog/" element={<Catalog/>}>
+                        <Route path=":page/:limit" element={<Catalog/>}/>
+                    </Route>
                     <Route path="card" element={<CardPage/>}/>
                     <Route path="sales" element={<Sales/>}/>
                     <Route path="sales/sales_open" element={<SalesItemOpen/>}/>
+
                     <Route path="user/*" element={<Cabinet/>}>
                         <Route path="account" element={<MyProfile/>}/>
                         <Route path="profile" element={<ChangeProfile/>}/>
@@ -101,6 +106,10 @@ function App() {
                         <Route path="likes" element={<MyLikes/>}/>
                         <Route path="password" element={<ChangePassword/>}/>
                         <Route path="logout" element={<Logout/>}/>
+                    </Route>
+
+                    <Route path="user/auth/*" element={<Cabinet/>}>
+                        <Route path="sign-in" element={<Signin/>}/>
                     </Route>
                     <Route path="admin" element={<Admin/>}/>
                     <Route path="basket" element={<Basket/>}/>

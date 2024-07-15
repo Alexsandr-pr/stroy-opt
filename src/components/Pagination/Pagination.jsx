@@ -18,17 +18,18 @@ const Pagination = ({cbPrev, cbNext, postsLenght, countriesPerPage, activePage, 
     };
 
     const pageSubset = getPageSubset();
+
     return (
         <div className='flex items-center gap-2.5 '>
-                <PaginationButtonLeft disabled={currentPage === 1} cb={cbPrev}/>
-                {
-                    pageSubset.map(item => {
-                        return (
-                            <PaginationItem onChangePage={item !== activePage && onChangePage} key={item} active={item === activePage} i={item}/>
-                        )
-                    })
-                }
-                <PaginationButtonRight disabled={currentPage === pageNumbers[pageNumbers.length - 1]} cb={cbNext}/>
+            <PaginationButtonLeft disabled={currentPage === 1} cb={cbPrev}/>
+            {
+                pageSubset.map(item => {
+                    return (
+                        <PaginationItem onChangePage={item !== activePage && onChangePage} key={item} active={item === activePage} i={item}/>
+                    )
+                })
+            }
+            <PaginationButtonRight disabled={currentPage === pageNumbers[pageNumbers.length - 1]} cb={cbNext}/>
         </div>
     )
 }

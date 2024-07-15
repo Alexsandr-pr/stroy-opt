@@ -17,6 +17,7 @@ import catalogAction from "action/catalogAction";
 import ButtonItems from "components/Buttons/ButtonsItems/ButtonItems";
 import ButtonCategoryClear from "components/Buttons/ButtonCategory/ButtonCategoryClear";
 import ButtonItemsClear from "components/Buttons/ButtonsItems/ButtonItemsClear";
+import { useNavigate, useParams } from "react-router-dom";
 
 const categoryFilter = [
     {
@@ -40,9 +41,26 @@ const categoryFilter = [
 
 const CatalogRight = () => {
     const dispatch = useDispatch()
-    
+    const { page, limit } = useParams();
+    // const counterPerPage = useSelector(store => store.catalog.counterPerPage);
+    // const dispatch = useDispatch()
+
+    // // const onChangeCounter = (number) => {
+    // //     dispatch(CatalogAction.changeCountPerPage(number))
+    // // }
+
+    const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     // Выполните здесь любые действия, необходимые при изменении page или limit
+    //     console.log(`Current page: ${page}, limit: ${limit}`);
+    // }, [page, limit]);
+
+    const handlePageChange = (newPage) => {
+        navigate(`/catalog/${newPage}/${limit}`);
+    };
     const cards = useSelector(store => store.card.cards)
-    const { cardsLenght, counterPerPage, page , loadingCatalog} = useSelector(store => store.catalog)
+    const { cardsLenght, loadingCatalog} = useSelector(store => store.catalog)
 
     const catalogRef = useRef([]);
 
@@ -59,21 +77,22 @@ const CatalogRight = () => {
             behavior:"smooth"
         })
     }
+
     const addActiveFilters = () => {
         dispatch(addActiveFilter())
     }
 
-    const onChangePage = (number) => {
-        dispatch(catalogAction.changePage(number))
-        scrollToElement()
-    }
+    // const onChangePage = (number) => {
+    //     dispatch(catalogAction.changePage(number))
+    //     scrollToElement()
+    // }
 
     const nextPage = () => {
-        dispatch(catalogAction.onNextPage())
+        handlePageChange(+page + 1)
         scrollToElement()
     }
     const prevPage = () => {
-        dispatch(catalogAction.onPrevPage())
+        handlePageChange(+page - 1)
         scrollToElement()
     }
 
@@ -111,7 +130,7 @@ const CatalogRight = () => {
                 }
             </div>
             <div className="flex justify-center mb-12 lg:mb-20">
-                <Pagination cbNext={nextPage} cbPrev={prevPage} currentPage={page} onChangePage={onChangePage} activePage={page} postsLenght={cardsLenght} countriesPerPage={counterPerPage}/>
+                <Pagination cbNext={nextPage} cbPrev={prevPage} currentPage={page} onChangePage={handlePageChange} activePage={page} postsLenght={cardsLenght} countriesPerPage={limit}/>
             </div>
             <CatalogInfoText/>
         </div>

@@ -3,22 +3,29 @@ import TitleMain from "components/BlockText/TitleMain/TitleMain"
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs"
 import CatalogLeft from "components/Catalog/CatalogLeft/CatalogLeft"
 import CatalogRight from "components/Catalog/CatalogRight/CatalogRight"
-import BurgerIcon from "components/Icon/BurgerIcon"
+
 import { useEffect } from "react"
 
 import {  useDispatch, useSelector } from "react-redux"
+import {  useNavigate, useParams } from "react-router-dom"
 
 
 const Catalog = () => {
 
+    const {page, limit} = useParams();
+    const navigate = useNavigate();
     const activeFilter = useSelector(state => state.catalog.activeFilter);
-    const {page, counterPerPage} = useSelector(store => store.catalog)
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(cardAction.getCardsOnDb(counterPerPage, page));
-    }, [counterPerPage, page])
-    
+        dispatch(cardAction.getCardsOnDb(limit, page));
+    }, [limit, page])
+
+    // useEffect(() => {
+    //     navigate(`catalog/1/8`);
+    // },[])
+
     return (
         <div className="max-w-[1654px] mx-auto px-4">
             <Breadcrumbs page={"Электроинструмент"}/>

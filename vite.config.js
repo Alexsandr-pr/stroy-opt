@@ -11,7 +11,8 @@ export default defineConfig({
           pages: "/src/pages",
           hooks: "/src/hooks",
           action: "/src/action",
-          store: "/src/store"
+          store: "/src/store",
+          consts: "/src/consts",
         }
     }
 })

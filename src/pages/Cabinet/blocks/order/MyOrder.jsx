@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const statusStyles = {
@@ -10,7 +10,7 @@ const statusStyles = {
 
 const MyOrder = () => {
     const orders = useSelector(store => store.userOrder.orders)
-
+    
     return (
         
         
@@ -27,6 +27,7 @@ const MyOrder = () => {
             </thead>
           <tbody className="divide-y divide-[#EDF0F2] bg-white">
             {orders.map((order, index) => (
+              
               <tr key={index}>
                 <td className="px-5 py-6 text-main-title whitespace-nowrap">{order.number}</td>
                 <td className="px-5 py-6 text-main-title whitespace-nowrap">{order.date}</td>
